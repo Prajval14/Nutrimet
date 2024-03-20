@@ -2,6 +2,15 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#row2 {
-    background-color: #94BF9D;
+.nav-link {
+    text-decoration: none;
+    color: #054F98;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #054F98;
+    color: white;
+    border-radius: 20px;
 }

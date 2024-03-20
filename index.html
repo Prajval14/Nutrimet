@@ -14,49 +14,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- jQuery Reference -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- External CSS -->
-    <link href="./css/index.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">    
+    <!-- External JS -->
+    <script src="./js/index.js"></script>
+    <!-- Naming convension:
+    IDs - underscore(_)
+    Class - dash(-) -->
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">        
-        <i class="bi bi-search fs-3 float-start ps-3"></i>
-        <div class="justify-content-center">            
-            <a class="navbar-brand" href="./index.html">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand active" href="./index.html">
                 <img src="./media/images/logo/main.png" alt="Nutrimet" width="50">
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar_supported_content">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gym Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Yoga Equipments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Supplements</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">                
+                </form>
+            </div>
         </div>
-        <i class="bi bi-person-circle fs-3 float-end pe-3"></i>
-    </nav>
-    <div class="bg-black text-light text-center p-4" id="row1">
-        <p class="fs-1 fw-bold">
-            EXTRA 20% OFF SUPPLEMENTS
-        </p>
-        <p class="fs-6 fw-medium">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-        </p>
-        <a class="btn btn-light text-black fw-bold border-0 rounded-pill" href="#" role="button">SHOP GYM</a><br>
-        <a class="btn btn-light text-black fw-bold border-0 rounded-pill mt-3" href="#" role="button">SHOP SUPPLEMENTS</a>
-    </div>
-    <div id="row2" class="text-center align-middle">
-        <img src="./media/images/test.jpg" alt="Test" width="400px" class="px-2 py-5"><br>
-        <div class="text-start text-light px-4">
-            <p class="fs-1 fw-bold">
-                UPTO 60% OFF EVERYTHING
-            </p>
-            <p class="fs-6 fw-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-            </p>
-        </div>        
-        <div class="d-grid gap-2 text-light px-4 pb-4">
-            <button class="btn btn-dark fs-4 fw-medium rounded-pill" type="button">Button</button>
-            <button class="btn btn-dark fs-4 fw-medium rounded-pill" type="button">Button</button>
-        </div>
-    </div>
-    <div id="row3" class="p-4">
-        <p class="fs-3 fw-bold">
-            SHOP GYM EQUIPMENTS
-        </p>
-    </div>
+    </nav>       
 </body>
 </html>

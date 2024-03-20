@@ -7,12 +7,20 @@ body {
     color: #054F98;
     border-radius: 20px;
     transition: background-color 0.3s ease;
+    width: 50%;
+    padding-left: 20px;
 }
 
 .nav-link:hover {
     background-color: #054F98;
     color: white;
     border-radius: 20px;
+    width: 50%;
+    padding-left: 20px;
+}
+
+nav .bi {
+    display: none;
 }
 
 #row1_button {
@@ -39,6 +47,15 @@ body {
 
 /* Media query for screens with a minimum width of 1024 pixels (typical for desktops) */
 @media only screen and (min-width: 1025px) {
+    .nav-link, .nav-link:hover {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    nav .bi {
+        display: flex;
+    }
+
     #row1_button {
         flex-direction: row;
     }

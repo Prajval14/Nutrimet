@@ -14,3 +14,37 @@ body {
     color: white;
     border-radius: 20px;
 }
+
+#row1_button {
+    flex-direction: column;
+}
+
+#row1 .btn {
+    margin-bottom: 10px;
+}
+
+/* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Media query for screens with a minimum width of 1024 pixels (typical for desktops) */
+@media only screen and (min-width: 1025px) {
+    #row1_button {
+        flex-direction: row;
+    }
+
+    #row1 .btn {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    #row2 {
+        text-align: center;
+        display: flex;
+    }
+
+    #row2 #col3 {
+        display: flex;
+    }
+}

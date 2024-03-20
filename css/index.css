@@ -23,6 +23,15 @@ body {
     margin-bottom: 10px;
 }
 
+#row2 {
+    background-color: #94BF9D;
+    display: block;
+}
+
+#row2 #col3 {
+    display: none;
+}
+
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 

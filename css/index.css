@@ -76,6 +76,10 @@ footer .btn-group {
     padding: 0px 100px;
 }
 
+footer #payment_images img {
+    width: 10%;
+}
+
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -126,5 +130,9 @@ footer .btn-group {
 
     footer .btn-group {
         padding: 0px 500px;
+    }
+
+    footer #payment_images img {
+        width: 5%;
     }
 }

@@ -40,6 +40,10 @@ nav .bi {
     display: none;
 }
 
+#row3 i {
+    display: flex;
+}
+
 #row5 {
     background-image: url('../media/images/test.jpg');
     background-repeat: no-repeat;
@@ -112,6 +116,10 @@ footer #payment_images img {
 
     #row2_col3 {
         display: flex;
+    }
+
+    #row3 i {
+        display: none;
     }
     
     #row5 button {

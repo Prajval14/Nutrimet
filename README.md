@@ -2,7 +2,7 @@
 
 Welcome to Nutrimet - your ultimate destination for health and wellness products online! Here, we cater to fitness enthusiasts, health-conscious individuals, and athletes by providing a wide range of products including supplements, fitness equipment, yoga accessories, and healthy snacks.
 
-![Nutrimet Logo](![Nutrimet Logo](https://raw.githubusercontent.com/Prajval14/Nutrimet/dev/media/images/logo/white.png))
+![Nutrimet Logo](https://raw.githubusercontent.com/Prajval14/Nutrimet/dev/media/images/logo/white.png)
 
 ## Project Objective 🎯
 

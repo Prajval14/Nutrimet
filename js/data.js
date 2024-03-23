@@ -55,7 +55,7 @@ export const yoga_data_list = [
         productdetail: "Adjustable cotton strap to improve flexibility and alignment in yoga practice", 
         originalprice: 12, 
         discountPrice: 0,
-        isondiscount: false,
+        isondiscount: true,
         imageURL: "https://example.com/yoga_strap.jpg"
     },
     {
@@ -106,7 +106,7 @@ export const supplements_data_list = [
         productdetail: "Digestive health probiotic capsules with beneficial bacteria strains", 
         originalprice: 30, 
         discountPrice: 0,
-        isondiscount: false,
+        isondiscount: true,
         imageURL: "https://example.com/probiotic_supplements.jpg"
     },
     {

@@ -27,7 +27,7 @@ function createCards(data, container) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 21rem;">
             <img src="./media/images/test.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${data.productname}</h5>

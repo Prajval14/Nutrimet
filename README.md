@@ -2,7 +2,7 @@
 
 Welcome to Nutrimet - your ultimate destination for health and wellness products online! Here, we cater to fitness enthusiasts, health-conscious individuals, and athletes by providing a wide range of products including supplements, fitness equipment, yoga accessories, and healthy snacks.
 
-![Nutrimet Logo](raw.githubusercontent.com/Prajval14/Nutrimet/blob/dev/media/images/logo/white.png?raw=true)
+![Nutrimet Logo](![Nutrimet Logo](https://raw.githubusercontent.com/Prajval14/Nutrimet/dev/media/images/logo/white.png))
 
 ## Project Objective 🎯
 
@@ -32,7 +32,7 @@ In the realm of health and wellness, we recognize the importance of accessibilit
 
 ## Get Started 🚀
 
-1. Clone this repository: `git clone https://github.com/your/repository.git`
+1. Clone this repository: `git clone https://github.com/Prajval14/Nutrimet.git`
 2. Open `index.html` in your preferred web browser.
 3. Browse through our products and enjoy a seamless shopping experience!
 

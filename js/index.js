@@ -1,19 +1,23 @@
 import { gym_data_list } from './data.js';
 
-document.addEventListener('DOMContentLoaded', function() {        
+const gym_data_container = document.getElementById('gym_data_container');
+
+document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth < 1025) {
-        createGymCards(gym_data_list[0]);
+        createGymCards(gym_data_list[0], gym_data_container);
     }   
     else {        
         gym_data_list.forEach(data => {
-            createGymCards(data);
+            createGymCards(data, gym_data_container);
         });
-    }
-    
+    }    
 });
 
-function createGymCards(gym_data_list) {
-    const gym_data_container = document.getElementById('gym_data_container');
+document.getElementById('gym_left').addEventListener("click", function() {
+    gymLeftClick(gym_data_container);
+});
+
+function createGymCards(gym_data_list, gym_data_container) {    
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
@@ -33,4 +37,9 @@ function createGymCards(gym_data_list) {
         </div>
     `;
     gym_data_container.appendChild(cardDiv);
+}
+
+function gymLeftClick(gym_data_container) {
+    gym_data_container.innerHTML = '';
+    createGymCards(gym_data_list[1], gym_data_container);
 }

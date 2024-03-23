@@ -40,6 +40,11 @@ export const supplements_data_list = [
         productdetail: "Supplement Product Subtitle 1", 
         originalprice: 60, 
         discountPrice: 50,
+    },
+    {
+        productname: "Supplement Product 2 Title", 
+        productdetail: "Supplement Product Subtitle 2", 
+        originalprice: 60, 
+        discountPrice: 50,
     }
 ]
-

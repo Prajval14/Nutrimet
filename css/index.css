@@ -1,28 +1,3 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #054F98;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-    width: 50%;
-    padding-left: 20px;
-}
-
-.nav-link:hover {
-    background-color: #054F98;
-    color: white;
-    border-radius: 20px;
-    width: 50%;
-    padding-left: 20px;
-}
-
-nav .bi {
-    display: none;
-}
-
 #row1_button {
     flex-direction: column;
 }
@@ -38,6 +13,10 @@ nav .bi {
 
 #row2_col3 {
     display: none;
+}
+
+#row3 i {
+    display: flex;
 }
 
 #row5 {
@@ -72,10 +51,6 @@ nav .bi {
     padding: 30px 20px;
 }
 
-footer .btn-group {
-    padding: 0px 100px;
-}
-
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -83,15 +58,6 @@ footer .btn-group {
 
 /* Media query for screens with a minimum width of 1024 pixels (typical for desktops) */
 @media only screen and (min-width: 1025px) {
-    .nav-link, .nav-link:hover {
-        width: 100%;
-        padding-left: 0px;
-    }
-
-    nav .bi {
-        display: flex;
-    }
-
     #row1_button {
         flex-direction: row;
     }
@@ -109,6 +75,10 @@ footer .btn-group {
     #row2_col3 {
         display: flex;
     }
+
+    #row3 i {
+        display: none;
+    }
     
     #row5 button {
         width: auto;
@@ -122,9 +92,5 @@ footer .btn-group {
 
     #row7 .col {
         margin: 0px 10px;
-    }
-
-    footer .btn-group {
-        padding: 0px 500px;
     }
 }

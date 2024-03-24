@@ -23,6 +23,11 @@ nav .bi {
     display: none;
 }
 
+.bi-person{
+    color: black !important;
+    text-decoration: none !important;
+}
+
 #row1_button {
     flex-direction: column;
 }

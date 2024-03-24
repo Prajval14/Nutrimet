@@ -1,12 +1,13 @@
 /*  */
 #edit-product-cart i{
     color: black;
-   
     margin: 5px;
     border-radius: 5px;
+    transition: 0.3s;
+    padding: 0 5px;
 }
 
 #edit-product-cart i:hover{
-    color: blue;
-    background-color: #BCE6D8;
+    color: white;
+    background-color: #000080;
 }

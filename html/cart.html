@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../css/index.css"> 
     <link rel="stylesheet" href="../css/cart.css">   
     <!-- External JS -->
-    <script src="./js/index.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
     <!-- Naming convension:
     IDs - underscore(_)
     Class - dash(-) -->
@@ -60,13 +60,23 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-8"></div>
-            <div class="col-sm-4"></div>
+    <!-- content - 1 cart -->
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-8">
+                <div class="row" id="row1_1">
+                    <p class="fs-4 fw-bold text-end">YOUR CART</p>
+                </div>
+
+                <div class="products" id="p"></div>
+                <!--  -->
+            </div>
+            <div class="col-md-4">
+                <p class="fs-4 fw-bold text-end">SUMMARY</p>
+            </div>
         </div>
     </div>
     
-    <script src="../js/cart.js"></script>
+    <script type="module" src="../js/cart.js"></script>
 </body>
 </html>

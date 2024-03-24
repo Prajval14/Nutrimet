@@ -1,0 +1,12 @@
+/*  */
+#edit-product-cart i{
+    color: black;
+   
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#edit-product-cart i:hover{
+    color: blue;
+    background-color: #BCE6D8;
+}

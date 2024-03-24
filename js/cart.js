@@ -20,7 +20,7 @@ function createCards(data){
         <div class="card mb-3" >
         <div class="row no-gutters">
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img class="card-img img-thumbnail" src="${data.imageURL}" alt="projuct_1" width="100%">
+            <img class="card-img img-thumbnail" src="${data.imageURL}" alt="product Image" width="100%">
         </div>
         <div class="col-xl-9 col-lg-8 col-md-6 col-sm-6">
             <div class="card-body">

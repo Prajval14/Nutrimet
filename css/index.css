@@ -45,6 +45,10 @@ nav .bi {
     display: none;
 }
 
+#row3 i, #row4 i, #row6 i {
+    display: flex;
+}
+
 #row5 {
     background-image: url('../media/images/test.jpg');
     background-repeat: no-repeat;
@@ -77,10 +81,6 @@ nav .bi {
     padding: 30px 20px;
 }
 
-footer .btn-group {
-    padding: 0px 100px;
-}
-
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -88,15 +88,6 @@ footer .btn-group {
 
 /* Media query for screens with a minimum width of 1024 pixels (typical for desktops) */
 @media only screen and (min-width: 1025px) {
-    .nav-link, .nav-link:hover {
-        width: 100%;
-        padding-left: 0px;
-    }
-
-    nav .bi {
-        display: flex;
-    }
-
     #row1_button {
         flex-direction: row;
     }
@@ -114,6 +105,10 @@ footer .btn-group {
     #row2_col3 {
         display: flex;
     }
+
+    #row3 i, #row4 i, #row6 i {
+        display: none;
+    }
     
     #row5 button {
         width: auto;
@@ -127,9 +122,5 @@ footer .btn-group {
 
     #row7 .col {
         margin: 0px 10px;
-    }
-
-    footer .btn-group {
-        padding: 0px 500px;
     }
 }

@@ -79,5 +79,6 @@ document.getElementById('yoga_right').addEventListener("click", () => handleNavi
 document.getElementById('supplement_left').addEventListener("click", () => handleNavigation(-1, 'supplements', discountedSupplementProducts, supplementsContainer));
 document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
 
+// Navbar JS
 document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
 document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');

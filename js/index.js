@@ -2,6 +2,7 @@ import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js'
 
 const gymContainer = document.getElementById('gym_data_container');
 const yogaContainer = document.getElementById('yoga_data_container');
+const footerYear = document.getElementById('current_Year');
 const supplementsContainer = document.getElementById('supplements_data_container');
 const discountedGymProducts = gym_data_list.filter(product => product.isondiscount);
 const discountedYogaProducts = yoga_data_list.filter(product => product.isondiscount);
@@ -12,6 +13,8 @@ let yogaIndex = 0;
 let supplementsIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+    footerYear.innerHTML = new Date().getFullYear();
+    
     if (window.innerWidth < 1025) {        
         createCards(discountedGymProducts[0], gymContainer);
         createCards(discountedYogaProducts[0], yogaContainer);

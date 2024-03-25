@@ -2,7 +2,7 @@
     flex-direction: column;
 }
 
-#row1 .btn {
+#row1 a {
     margin-bottom: 10px;
 }
 
@@ -11,7 +11,19 @@
     display: block;
 }
 
+#row2_col1 {
+    background-image: url('https://images.stockcake.com/public/a/2/f/a2fbb3fc-b0fa-473d-866c-e510a947f2c6_large/yoga-essentials-bundle-stockcake.jpg');
+    height: 500px;
+    background-size: cover;
+    margin: 0 auto;
+}
+
 #row2_col3 {
+    background-image: url('https://images.stockcake.com/public/e/a/3/ea3ec6e0-a042-45e8-b95e-fe6b9afd0fd5_large/gym-ready-gear-stockcake.jpg');
+    height: 500px;
+    background-size: cover;
+    margin: 1.5rem;
+    border-radius: 10px;
     display: none;
 }
 
@@ -20,7 +32,7 @@
 }
 
 #row5 {
-    background-image: url('../media/images/test.jpg');
+    background-image: url('https://images.stockcake.com/public/a/2/0/a20742d0-abc3-4890-a546-efa5b48bfd7f/gym-hydration-essential-stockcake.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;    
@@ -30,7 +42,7 @@
     margin-top: 250px;
 }
 
-#row5 button {
+#row5 a {
     width: 100%;
     margin-top: 20px;
 }
@@ -42,13 +54,29 @@
 }
 
 #row7 .col {
-    background-image: url('../media/images/test.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px;
     height: 600px;
     margin: 10px 0px;
     padding: 30px 20px;
+}
+
+#row7_col1 {
+    background-image: url('https://images.stockcake.com/public/5/7/a/57ace551-778c-4fee-8c30-a296f1e04d4a_large/gym-rest-time-stockcake.jpg');
+}
+
+#row7_col2 {
+    background-image: url('https://images.stockcake.com/public/d/4/8/d4873aab-fb18-4b88-8e0c-07b65c080db1_large/zen-home-setup-stockcake.jpg');
+}
+
+#row7_col3 {
+    background-image: url('https://images.stockcake.com/public/5/7/5/575e68cf-edd1-4a0b-be48-0a69c633a076_large/herbal-medicine-preparation-stockcake.jpg');
+}
+
+#row7_highlight {
+    color: #94BF9D;
+    font-weight: 600;
 }
 
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
@@ -62,7 +90,7 @@
         flex-direction: row;
     }
 
-    #row1 .btn {
+    #row1 a {
         margin-right: 10px;
         margin-bottom: 0;
     }
@@ -72,6 +100,11 @@
         display: flex;
     }
 
+    #row2_col1 {
+        margin: 1.5rem;
+        border-radius: 10px;
+    }
+    
     #row2_col3 {
         display: flex;
     }
@@ -80,7 +113,7 @@
         display: none;
     }
     
-    #row5 button {
+    #row5 a {
         width: auto;
         margin: 0;
     }

@@ -22,8 +22,7 @@
         rel="stylesheet">
     <!-- jQuery Reference -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- External CSS -->
-    <link href="../css/index.css" rel="stylesheet">
+
     <!-- External JS -->
     <script src="./js/index.js"></script>
     <!-- Naming convension:
@@ -60,8 +59,8 @@
                 <form class="d-flex pe-4" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 </form>
-                <i class="bi bi-cart2 fs-3 pe-4"></i>
-                <i class="bi bi-person fs-3"></i>
+                <i class="d-none d-lg-inline-block bi bi-cart2 fs-3 pe-4"></i>
+                <i class=" d-none d-lg-inline-block bi bi-person fs-3"></i>
             </div>
         </div>
     </nav>
@@ -70,14 +69,15 @@
             Products
         </p>
         <div class="row mt-4">
-          <!-- Filters and sorting can be added here later -->
+            <!-- Filters and sorting can be added here later -->
         </div>
         <div id="products-row" class="row">
-          <!-- Products will be added here dynamically -->
+            <!-- Products will be added here dynamically -->
         </div>
-      </div>
-    
-      <script src="../js/products.js"></script>
+    </div>
+
+    <script src="../js/products.js" type="module"></script>
+
 </body>
 
 </html>

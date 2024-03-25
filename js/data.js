@@ -5,7 +5,9 @@ export const gym_data_list = [
         originalprice: 45, 
         discountPrice: 40,
         isondiscount: true,
-        imageURL: "https://example.com/protein_powder.jpg"
+        imageURL: "../media/images/test.jpg",
+        rating: 4.5
+
     },
     { 
         productname: "Weightlifting Gloves", 
@@ -13,7 +15,9 @@ export const gym_data_list = [
         originalprice: 30, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/weightlifting_gloves.jpg"
+        imageURL: "https://example.com/weightlifting_gloves.jpg",
+        rating: 4.0
+
     },
     { 
         productname: "Yoga Mat", 
@@ -21,7 +25,9 @@ export const gym_data_list = [
         originalprice: 25, 
         discountPrice: 20,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_mat.jpg"
+        imageURL: "https://example.com/yoga_mat.jpg",
+        rating: 4.2
+
     },
     { 
         productname: "Resistance Bands Set", 
@@ -29,7 +35,9 @@ export const gym_data_list = [
         originalprice: 35, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/resistance_bands.jpg"
+        imageURL: "https://example.com/resistance_bands.jpg",
+        rating: 4.3
+
     },
     { 
         productname: "Shaker Bottle", 
@@ -37,7 +45,9 @@ export const gym_data_list = [
         originalprice: 15, 
         discountPrice: 12,
         isondiscount: true,
-        imageURL: "https://example.com/shaker_bottle.jpg"
+        imageURL: "https://example.com/shaker_bottle.jpg",
+        rating: 4.1
+
     }
 ];
 
@@ -48,7 +58,9 @@ export const yoga_data_list = [
         originalprice: 10, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/yoga_block.jpg"
+        imageURL: "https://example.com/yoga_block.jpg",
+        rating: 4.4
+
     },
     {
         productname: "Yoga Strap", 
@@ -56,7 +68,9 @@ export const yoga_data_list = [
         originalprice: 12, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_strap.jpg"
+        imageURL: "https://example.com/yoga_strap.jpg",
+        rating: 4.6
+
     },
     {
         productname: "Yoga Wheel", 
@@ -64,7 +78,9 @@ export const yoga_data_list = [
         originalprice: 30, 
         discountPrice: 25,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_wheel.jpg"
+        imageURL: "https://example.com/yoga_wheel.jpg",
+        rating: 4.7
+
     },
     {
         productname: "Yoga Towel", 
@@ -72,7 +88,9 @@ export const yoga_data_list = [
         originalprice: 20, 
         discountPrice: 18,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_towel.jpg"
+        imageURL: "https://example.com/yoga_towel.jpg",
+        rating: 4.5
+
     },
     {
         productname: "Yoga Pants", 
@@ -80,7 +98,8 @@ export const yoga_data_list = [
         originalprice: 40, 
         discountPrice: 35,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_pants.jpg"
+        imageURL: "https://example.com/yoga_pants.jpg",
+        rating: 4.4
     }
 ];
 
@@ -91,7 +110,8 @@ export const supplements_data_list = [
         originalprice: 20, 
         discountPrice: 18,
         isondiscount: true,
-        imageURL: "https://example.com/multivitamin_tablets.jpg"
+        imageURL: "https://example.com/multivitamin_tablets.jpg",
+        rating: 4.4
     },
     {
         productname: "Omega-3 Fish Oil", 
@@ -99,7 +119,8 @@ export const supplements_data_list = [
         originalprice: 25, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/fish_oil_capsules.jpg"
+        imageURL: "https://example.com/fish_oil_capsules.jpg",
+        rating: 4.3
     },
     {
         productname: "Probiotic Supplements", 
@@ -107,7 +128,8 @@ export const supplements_data_list = [
         originalprice: 30, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/probiotic_supplements.jpg"
+        imageURL: "https://example.com/probiotic_supplements.jpg",
+        rating: 4.5
     },
     {
         productname: "Plant-Based Protein Bars", 
@@ -115,7 +137,8 @@ export const supplements_data_list = [
         originalprice: 18, 
         discountPrice: 15,
         isondiscount: true,
-        imageURL: "https://example.com/protein_bars.jpg"
+        imageURL: "https://example.com/protein_bars.jpg",
+        rating: 4.2
     },
     {
         productname: "Collagen Powder", 
@@ -123,6 +146,7 @@ export const supplements_data_list = [
         originalprice: 35, 
         discountPrice: 30,
         isondiscount: true,
-        imageURL: "https://example.com/collagen_powder.jpg"
+        imageURL: "https://example.com/collagen_powder.jpg",
+        rating: 4.6
     }
 ];

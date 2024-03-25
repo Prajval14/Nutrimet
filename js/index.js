@@ -67,6 +67,11 @@ function handleNavigation(direction, category, dataList, container) {
     }
 }
 
+function showCard(index, dataList, container) {
+    container.innerHTML = '';
+    createCards(dataList[index], container);
+}
+
 document.getElementById('gym_left').addEventListener("click", () => handleNavigation(-1, 'gym', discountedGymProducts, gymContainer));
 document.getElementById('gym_right').addEventListener("click", () => handleNavigation(1, 'gym', discountedGymProducts, gymContainer));
 document.getElementById('yoga_left').addEventListener("click", () => handleNavigation(-1, 'yoga', discountedYogaProducts, yogaContainer));
@@ -74,7 +79,5 @@ document.getElementById('yoga_right').addEventListener("click", () => handleNavi
 document.getElementById('supplement_left').addEventListener("click", () => handleNavigation(-1, 'supplements', discountedSupplementProducts, supplementsContainer));
 document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
 
-function showCard(index, dataList, container) {
-    container.innerHTML = '';
-    createCards(dataList[index], container);
-}
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
+document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');

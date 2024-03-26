@@ -79,6 +79,15 @@
     font-weight: 600;
 }
 
+#add_to_cart_button {
+    background-color: #054F98;    
+}
+
+#add_to_cart_button.added {
+    background-color: #94BF9D;
+    color: black;
+}
+
 /* Media query for screens with a minimum width of 768 pixels and a maximum of 1023 pixels (typical for tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 

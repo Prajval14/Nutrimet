@@ -4,17 +4,19 @@ const gymContainer = document.getElementById('gym_data_container');
 const yogaContainer = document.getElementById('yoga_data_container');
 const footerYear = document.getElementById('current_Year');
 const supplementsContainer = document.getElementById('supplements_data_container');
+const cartBadge = document.getElementById('cart_items_badge');
+
 const discountedGymProducts = gym_data_list.filter(product => product.isondiscount);
 const discountedYogaProducts = yoga_data_list.filter(product => product.isondiscount);
 const discountedSupplementProducts = supplements_data_list.filter(product => product.isondiscount);
+
+const myCart = [];
 
 let gymIndex = 0;
 let yogaIndex = 0;
 let supplementsIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
-    footerYear.innerHTML = new Date().getFullYear();
-    
     if (window.innerWidth < 1025) {        
         createCards(discountedGymProducts[0], gymContainer);
         createCards(discountedYogaProducts[0], yogaContainer);
@@ -23,9 +25,29 @@ document.addEventListener('DOMContentLoaded', function() {
         discountedGymProducts.forEach(data => createCards(data, gymContainer));
         discountedYogaProducts.forEach(data => createCards(data, yogaContainer));
         discountedSupplementProducts.forEach(data => createCards(data, supplementsContainer));
-    }
+    }    
+    
+    //Setting up add to cart button after all cards are rendered
+    handleAddToCart(); 
+
+    //Setting dynamic year value in footer
+    footerYear.innerHTML = new Date().getFullYear();
 });
 
+//Handling left right click event listeners for card in mobile viewport
+document.getElementById('gym_left').addEventListener("click", () => handleNavigation(-1, 'gym', discountedGymProducts, gymContainer));
+document.getElementById('gym_right').addEventListener("click", () => handleNavigation(1, 'gym', discountedGymProducts, gymContainer));
+document.getElementById('yoga_left').addEventListener("click", () => handleNavigation(-1, 'yoga', discountedYogaProducts, yogaContainer));
+document.getElementById('yoga_right').addEventListener("click", () => handleNavigation(1, 'yoga', discountedYogaProducts, yogaContainer));
+document.getElementById('supplement_left').addEventListener("click", () => handleNavigation(-1, 'supplements', discountedSupplementProducts, supplementsContainer));
+document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
+
+// Handling navbar cart and sign up on click event
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
+document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
+
+
+//Functions defined
 function createCards(data, container) {    
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
@@ -33,6 +55,7 @@ function createCards(data, container) {
         <div class="card" style="width: 21rem;">
             <img src="./media/images/test.jpg" class="card-img-top" alt="...">
             <div class="card-body">
+                <h5 class="product-id d-none">${data.productid}</h5>
                 <h5 class="card-title">${data.productname}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">${data.productdetail}</h6>
                 <p class="card-text">
@@ -41,7 +64,7 @@ function createCards(data, container) {
                 </p>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary">Add to cart</a>
+                <button class="btn btn-primary border-0 fw-medium add_to_cart_button" id="add_to_cart_button">Add to cart</button>
             </div>
         </div>
     `;
@@ -72,13 +95,26 @@ function showCard(index, dataList, container) {
     createCards(dataList[index], container);
 }
 
-document.getElementById('gym_left').addEventListener("click", () => handleNavigation(-1, 'gym', discountedGymProducts, gymContainer));
-document.getElementById('gym_right').addEventListener("click", () => handleNavigation(1, 'gym', discountedGymProducts, gymContainer));
-document.getElementById('yoga_left').addEventListener("click", () => handleNavigation(-1, 'yoga', discountedYogaProducts, yogaContainer));
-document.getElementById('yoga_right').addEventListener("click", () => handleNavigation(1, 'yoga', discountedYogaProducts, yogaContainer));
-document.getElementById('supplement_left').addEventListener("click", () => handleNavigation(-1, 'supplements', discountedSupplementProducts, supplementsContainer));
-document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
+function handleAddToCart() {
+    const addToCartButtons = document.querySelectorAll('.add_to_cart_button');
+    addToCartButtons.forEach(button => button.addEventListener("click", (event) => addProductToCart(event)));
+}
 
-// Navbar JS
-document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
-document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
+function addProductToCart(event) {
+    //Set add to cart on click to addded for few seconds
+    const button = event.target;
+    button.innerHTML = `Added <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </svg>`;
+    button.classList.add('added');
+    setTimeout(function() {
+        button.textContent = 'Add to Cart';
+        button.classList.remove('added');
+    }, 1000);
+
+    //Add product ID to cart and a list 
+    const productID = event.target.closest('.card').querySelector('.product-id').textContent;    
+    console.log('Added to cart:', productID);
+    myCart.push(productID);
+    cartBadge.innerHTML = myCart.length;
+}

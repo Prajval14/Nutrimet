@@ -26,10 +26,10 @@
     <link href="../css/common.css" rel="stylesheet">
     <!-- External JS -->
     <script src="../js/common.js"></script>
-    <script src="../js/products.js"></script>
+    <script type="module" src="../js/products.js"></script>
     <!-- Naming convension:
-     IDs - underscore(_)
-     Class - dash(-) -->
+    IDs - underscore(_)
+    Class - dash(-) -->
 </head>
 
 <body>
@@ -65,11 +65,11 @@
                 <div class="btn-group align-items-center d-flex" role="group" id="nav_icons">
                     <button type="button" class="btn" id="nav_cart_button">
                         <i class="bi bi-cart2 fs-3"></i>
-                        <a id="nav_cart"></a>
+                        <a id="nav_cart" class="ps-2"></a>
                     </button>
                     <button type="button" class="btn" id="nav_login_button">
                         <i class="bi bi-person fs-3"></i>
-                        <a id="nav_login"></a>
+                        <a id="nav_login" class="ps-2"></a>
                     </button>
                 </div>
             </div>
@@ -82,8 +82,10 @@
         </p>
         <div class="row mt-4">
             <!-- Filters and sorting can be added here later -->
+            <!-- Filters and sorting can be added here later -->
         </div>
         <div id="products-row" class="row">
+            <!-- Products will be added here dynamically -->
             <!-- Products will be added here dynamically -->
         </div>
     </div>

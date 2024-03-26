@@ -39,7 +39,7 @@ function createCards(data){
                         <div class="d-flex justify-content-between align-items-end mt-auto"  id="edit-product-cart">
                             <span>
                             <label for="qty">Qty:</label>
-                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="20" value="${data.quantity}">
+                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="20" value="1">
                             </span>
                             <span>
                                 <i class="bi bi-trash3 fs-4 bg" data-toggle="tooltip" data-placement="bottom" title="Delete from the cart"></i>

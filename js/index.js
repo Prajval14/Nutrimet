@@ -44,7 +44,7 @@ document.getElementById('supplement_right').addEventListener("click", () => hand
 
 // Handling navbar cart and sign up on click event
 document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
-// document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
+document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
 
 //Functions defined
@@ -113,8 +113,21 @@ function addProductToCart(event) {
     }, 1000);
 
     //Add product ID to cart and a list 
-    const productID = event.target.closest('.card').querySelector('.product-id').textContent;    
-    console.log('Added to cart:', productID);
+    const productID = event.target.closest('.card').querySelector('.product-id').textContent;        
     myCart.push(productID);
     cartBadge.innerHTML = myCart.length;
+}
+
+function toggleValidation() {
+    
+    var isValid = sessionStorage.getItem("isValid");
+
+    // If isValid is null or false, redirect to signup.html
+    if (!isValid || isValid === "false") {
+        // Redirect to signup.html
+        window.location.href = './html/signup.html';
+    } else {
+        // Redirect to products.html
+        window.location.href = './html/details.html';
+    }
 }

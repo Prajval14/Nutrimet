@@ -25,6 +25,7 @@
     <!-- External CSS -->
     <link href="./css/index.css" rel="stylesheet">
     <link href="./css/common.css" rel="stylesheet">
+    <script src="/Nutrimet/js/validation.js"></script>
     <!-- External JS -->
     <script type="module" src="./js/index.js"></script>
     <!-- Naming convension:
@@ -69,7 +70,7 @@
                         <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger mt-2" id="cart_items_badge"></span>
                         <a id="nav_cart" class="ps-2"></a>
                     </button>
-                    <button type="button" class="btn" id="nav_login_button">
+                    <button type="button" class="btn" id="nav_login_button" onclick="toggleValidation()">
                         <i class="bi bi-person fs-3"></i>
                         <a id="nav_login" class="ps-2"></a>
                     </button>

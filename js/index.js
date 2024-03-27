@@ -44,7 +44,7 @@ document.getElementById('supplement_right').addEventListener("click", () => hand
 
 // Handling navbar cart and sign up on click event
 document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
-document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
+// document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
 
 
 //Functions defined

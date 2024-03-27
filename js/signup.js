@@ -25,6 +25,8 @@ function toggleForms(formId) {
   function validateForms() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("cnfpassword").value;
+    var f_Name = document.getElementById('f_name').value;
+    var l_Name = document.getElementById('l_name').value;
 
     // Check if passwords match
     if (password !== confirmPassword) {
@@ -47,8 +49,10 @@ function toggleForms(formId) {
 
     var userId = document.getElementById('email').value;
     var passWordId = document.getElementById('password').value;
-    localStorage.setItem('userName_R',userId);
-    localStorage.setItem('password_R',passWordId);
+    sessionStorage.setItem('userName_R',userId);
+    sessionStorage.setItem('password_R',passWordId);
+    sessionStorage.setItem('f_name',f_Name);
+    sessionStorage.setItem('l_name',l_Name);
     var myModal = new bootstrap.Modal(document.getElementById('successModal'),{});
     myModal.show();
 
@@ -62,15 +66,15 @@ function loginValidation()
     var userName = document.getElementById('loginEmail').value;
     var l_Password = document.getElementById('loginPassword').value;
 
-    var R_Id = localStorage.getItem('userName_R');
-    var R_Pass = localStorage.getItem('password_R');
+    var R_Id = sessionStorage.getItem('userName_R');
+    var R_Pass = sessionStorage.getItem('password_R');
 
-    console.log(R_Id);
-    console.log(R_Pass);
+    
     if(R_Id == userName && l_Password == R_Pass)
     {
         
         window.location.href= "../index.html";
+        sessionStorage.setItem("isValid", true);
     }
 
     else

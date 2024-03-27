@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Details Form</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/details.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-container">
+          <h2 class="mb-4">Update Details</h2>
+          <div class="form-group">
+            <label for="Name" >Name</label>
+            <input type="text" class="form-control mb-3" id="Full_Name"  >
+          </div>
+          <div class="form-group">
+            <label for="Email" >Email</label>
+            <input type="email" class="form-control mb-3" id="email"  disabled>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="form-group">
+            <label for="password"  >Password</label>
+            <input type="password" class="form-control mb-3" id="password" disabled  >
+            <div class="invalid-feedback" id="passwordError"></div>
+          </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea class="form-control" id="address" rows="3" placeholder="Enter address"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/details.js"></script>
+</body>
+</html>

@@ -43,7 +43,7 @@ document.getElementById('supplement_left').addEventListener("click", () => handl
 document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
 
 // Handling navbar cart and sign up on click event
-document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
 document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
 

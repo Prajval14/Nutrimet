@@ -5,6 +5,7 @@ const yogaContainer = document.getElementById('yoga_data_container');
 const footerYear = document.getElementById('current_Year');
 const supplementsContainer = document.getElementById('supplements_data_container');
 const cartBadge = document.getElementById('cart_items_badge');
+const navbarBadge = document.getElementById('navbar_toggler_icon_badge');
 
 const discountedGymProducts = gym_data_list.filter(product => product.isondiscount);
 const discountedYogaProducts = yoga_data_list.filter(product => product.isondiscount);
@@ -52,12 +53,12 @@ function createCards(data, container) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
-        <div class="card" style="width: 21rem;">
+        <div class="card" style="width: 20rem;">
             <img src="./media/images/test.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="product-id d-none">${data.productid}</h5>
                 <h5 class="card-title">${data.productname}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">${data.productdetail}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary" style="height: 50px">${data.productdetail}</h6>
                 <p class="card-text">
                 <span class="text-decoration-line-through text-secondary fw-light">$${data.originalprice}</span>
                 <span class="fw-bold text-danger ps-1 fs-5">$${data.discountPrice}</span>
@@ -115,6 +116,7 @@ function addProductToCart(event) {
     //Add product ID to cart and a list 
     const productID = event.target.closest('.card').querySelector('.product-id').textContent;        
     myCart.push(productID);
+    navbarBadge.style.display = 'flex';
     cartBadge.innerHTML = myCart.length;
 }
 

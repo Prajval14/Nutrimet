@@ -20,7 +20,12 @@
     <link rel="stylesheet" href="../css/index.css"> 
     <link rel="stylesheet" href="../css/cart.css">   
     <!-- External JS -->
+<<<<<<< HEAD
     <script type="module" src="./js/index.js"></script>
+=======
+    <script src="../js/common.js"></script>
+    <script type="module src="../js/cart.js"></script>
+>>>>>>> 3b41d0f34b121f243d54aead859a3e4147866bdc
     <!-- Naming convension:
     IDs - underscore(_)
     Class - dash(-) -->
@@ -28,7 +33,8 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <!-- Copy in other pages -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
         <div class="container-fluid">
             <a class="navbar-brand active" href="../index.html">
                 <img src="../media/images/logo/main.png" alt="NUtrimet" width="50">
@@ -54,8 +60,22 @@
                 <form class="d-flex pe-4" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">                
                 </form>
+<<<<<<< HEAD
                 <i class="bi bi-cart2 fs-3 pe-4 cart_bg" id="cart-nav"></i>
                 <i class="bi bi-person fs-3"></i>
+=======
+                <div class="btn-group align-items-center d-flex" role="group" id="nav_icons">
+                    <button type="button" class="btn" id="nav_cart_button">
+                        <i class="bi bi-cart2 fs-3"></i>
+                        <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger mt-2" id="cart_items_badge"></span>
+                        <a id="nav_cart" class="ps-2 text-decoration-none"></a>
+                    </button>
+                    <button type="button" class="btn" id="nav_login_button">
+                        <i class="bi bi-person fs-3"></i>
+                        <a id="nav_login" class="ps-2 text-decoration-none"></a>
+                    </button>
+                </div>                           
+>>>>>>> 3b41d0f34b121f243d54aead859a3e4147866bdc
             </div>
         </div>
     </nav>

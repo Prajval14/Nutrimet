@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+=======
+document.addEventListener("DOMContentLoaded", function() {
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var arrayString = params.get('index_page_selected_products');    
+    var index_page_selected_products = JSON.parse(arrayString);
+    
+    if (index_page_selected_products !== null) {
+        //Process your data from here
+        console.log(index_page_selected_products);        
+        const cartBadge = document.getElementById('cart_items_badge');
+        cartBadge.innerHTML = index_page_selected_products.length;
+    }
+});
+
+var cart = document.getElementById('cart-nav');
+
+cart.addEventListener('click', function(){
+    window.location.href= '../html/cart.html'
+});
+
+>>>>>>> 3b41d0f34b121f243d54aead859a3e4147866bdc
 import { gym_data_list, yoga_data_list, supplements_data_list } from "./data.js";
 
 // this function will display all the products from the dataset and total all the product price

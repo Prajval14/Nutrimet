@@ -1,0 +1,3 @@
+[submodule "Nutrimet"]
+	path = Nutrimet
+	url = https://github.com/Prajval14/Nutrimet.git

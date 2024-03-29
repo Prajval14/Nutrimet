@@ -5,7 +5,6 @@ const yogaContainer = document.getElementById('yoga_data_container');
 const footerYear = document.getElementById('current_Year');
 const supplementsContainer = document.getElementById('supplements_data_container');
 const cartBadge = document.getElementById('cart_items_badge');
-const navbarBadge = document.getElementById('navbar_toggler_icon_badge');
 
 const discountedGymProducts = gym_data_list.filter(product => product.isondiscount);
 const discountedYogaProducts = yoga_data_list.filter(product => product.isondiscount);
@@ -44,8 +43,8 @@ document.getElementById('supplement_left').addEventListener("click", () => handl
 document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
 
 // Handling navbar cart and sign up on click event
-document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
-document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
+// document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
 
 
 //Functions defined
@@ -53,12 +52,12 @@ function createCards(data, container) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 21rem;">
             <img src="./media/images/test.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="product-id d-none">${data.productid}</h5>
                 <h5 class="card-title">${data.productname}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary" style="height: 50px">${data.productdetail}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${data.productdetail}</h6>
                 <p class="card-text">
                 <span class="text-decoration-line-through text-secondary fw-light">$${data.originalprice}</span>
                 <span class="fw-bold text-danger ps-1 fs-5">$${data.discountPrice}</span>
@@ -114,22 +113,8 @@ function addProductToCart(event) {
     }, 1000);
 
     //Add product ID to cart and a list 
-    const productID = event.target.closest('.card').querySelector('.product-id').textContent;        
+    const productID = event.target.closest('.card').querySelector('.product-id').textContent;    
+    console.log('Added to cart:', productID);
     myCart.push(productID);
-    navbarBadge.style.display = 'flex';
     cartBadge.innerHTML = myCart.length;
-}
-
-function toggleValidation() {
-    
-    var isValid = sessionStorage.getItem("isValid");
-
-    // If isValid is null or false, redirect to signup.html
-    if (!isValid || isValid === "false") {
-        // Redirect to signup.html
-        window.location.href = './html/signup.html';
-    } else {
-        // Redirect to products.html
-        window.location.href = './html/details.html';
-    }
 }

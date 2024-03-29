@@ -18,7 +18,7 @@ function createCards(data){
                     <div class="card-body">
                         <h5 class="card-title">${data.productname}</h5>
                         <p class="card-text mb-1"><small class="text-muted">${data.productdetail}</small></p>
-                        <p class="price-cart fs-5 fw-bold p-0 m-0" id="discounted-price">$ ${data.discountPrice}</p>
+                        <p class="price-cart fs-5 fw-bold p-0 m-0" id="discounted-price">$ <span class="only-price">${data.discountPrice}</span></p>
                         <div class="d-flex justify-content-between align-items-end mt-auto"  id="edit-product-cart">
                             <span>
                             <label for="qty">Qty:</label>
@@ -37,32 +37,48 @@ function createCards(data){
     cartProductContainer.appendChild(cardDiv);
 }
 
+//share array of the price of the products which have added in the cart
+function total_price(){
+    var price = document.getElementsByClassName('only-price');
+    var price_of_cart = parseFloat(0);
+    for(var i=0; i<quantity.length; i++){
+        price_of_cart = price_of_cart + (parseFloat(price[i].textContent) * parseFloat(quantity[i]));
+        // console.log(price[i].textContent);
+    }
+
+    console.log(price_of_cart);
+    var sub_total = document.getElementById('sub_total');
+    var tax = document.getElementById('taxes');
+    sub_total.innerHTML = `${price_of_cart}`
+    var tax_calculation = price_of_cart * 0.13;
+    tax_calculation = tax_calculation + price_of_cart;
+    tax.innerHTML = `${tax_calculation}`; 
+}
+
 function changed_qty(){
     var qty = document.getElementsByClassName('cart-qty');
+    
     var title = document.getElementsByClassName('card-title');
     const cartBadge = document.getElementById('cart_items_badge');
     var changed_q = 0;
-    
     for (var i = 0; i < qty.length; i++) {
         quantity.push(parseInt(1));
-        console.log(quantity[i]);
         // Create a closure to capture the value of i for each iteration
         (function(index) {
             qty[index].addEventListener('change', function() {
-                var found = false;
                 console.log(title[index].textContent); // Access title using captured index
                 changed_q = this.value; //this will set the variabel with new quantity
                 console.log(changed_q);
                 quantity[index] = parseInt(changed_q);
                 var product_name = title[index].textContent; // this will set the variable with the product name
-                console.log(quantity);
+                // console.log(quantity);
                 var total = parseInt(0);
                 for (var i = 0; i< quantity.length; i++){
-                    
-                    console.log(quantity[i]);
+                    // console.log(quantity[i]);
                     total = total + parseInt(quantity[i]);
                 }
                 cartBadge.innerHTML = total;
+                total_price();
             });
         })(i); // Pass current value of i to the closure
     }
@@ -82,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function(){
         
         //Process your data from here
         const cartBadge = document.getElementById('cart_items_badge');
-        let total_cart_quantity = parseInt(0);
         var total_cart_price = parseFloat(0);
         index_page_selected_products.forEach(item => {
             var cart_single_product1 = gym_products.filter(product => {
@@ -105,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         })
         changed_qty();      
+        console.log(total_cart_price)
+        total_price();
     }
     if(index_page_selected_products.length<1)
     {

@@ -85,10 +85,16 @@
                     <!-- all the product in cart will be displayed in this div -->
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="r1c2">
                 <p class="fs-4 fw-bold text-end">SUMMARY</p>
-
-                Final Price<span id="final_price"></span>
+                <div class="summary card p-2">
+                    <h5 class="mt-2">Total Products: <span id="total_quantity">0 </span></h5>
+                    <h6>Sub Total: $ <span id="sub_total">0</span></h6>
+                    <h6>Taxes: $ <span id="taxes">0</span></h6>
+                    <hr>
+                    <h6>Total: $ <span id="total">0</span></h6>
+                    <button class="btn btn-primary mt-3 mb-1">Checkout</button>
+                </div>
             </div>
         </div>
     </div>

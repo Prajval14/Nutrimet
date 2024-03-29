@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var arrayString = params.get('index_page_selected_products');    
+    var index_page_selected_products = JSON.parse(arrayString);
+    
+    if (index_page_selected_products !== null) {
+        //Process your data from here
+        console.log(index_page_selected_products);        
+        const cartBadge = document.getElementById('cart_items_badge');
+        cartBadge.innerHTML = index_page_selected_products.length;
+    }
+});
+
 var cart = document.getElementById('cart-nav');
 
 cart.addEventListener('click', function(){

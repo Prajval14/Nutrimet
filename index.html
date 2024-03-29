@@ -24,8 +24,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- External CSS -->
     <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/common.css" rel="stylesheet">
-    <script src="./js/validation.js"></script>
+    <link href="./css/common.css" rel="stylesheet">    
     <!-- External JS -->
     <script type="module" src="./js/index.js"></script>
     <!-- Naming convension:
@@ -44,6 +43,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content"
                 aria-expanded="false" aria-label="Toggle navigation">
+                <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle" id="navbar_toggler_icon_badge"></span>
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar_supported_content">
@@ -70,7 +70,7 @@
                         <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger mt-2" id="cart_items_badge"></span>
                         <a id="nav_cart" class="ps-2 text-decoration-none"></a>
                     </button>
-                    <button type="button" class="btn" id="nav_login_button" onclick="toggleValidation()">
+                    <button type="button" class="btn" id="nav_login_button">
                         <i class="bi bi-person fs-3"></i>
                         <a id="nav_login" class="ps-2 text-decoration-none"></a>
                     </button>

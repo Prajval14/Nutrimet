@@ -16,9 +16,18 @@ function onPageLoad()
   password.value = Password;
 
 
+}
 
+function closeDetails()
+{
+  window.location.href = "../index.html"
 
+}
 
+function resetSession()
+{
+  sessionStorage.clear();
+  window.location.href = "../index.html"
 }
   document.addEventListener("DOMContentLoaded", function(event) {
     // Call onPageLoad when the DOM content is fully loaded

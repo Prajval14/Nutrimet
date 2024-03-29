@@ -1,49 +1,9 @@
-<<<<<<< HEAD
-=======
-document.addEventListener("DOMContentLoaded", function() {
-    var queryString = window.location.search;
-    var params = new URLSearchParams(queryString);
-    var arrayString = params.get('index_page_selected_products');    
-    var index_page_selected_products = JSON.parse(arrayString);
-    
-    if (index_page_selected_products !== null) {
-        //Process your data from here
-        console.log(index_page_selected_products);        
-        const cartBadge = document.getElementById('cart_items_badge');
-        cartBadge.innerHTML = index_page_selected_products.length;
-    }
-});
-
-var cart = document.getElementById('cart-nav');
-
-cart.addEventListener('click', function(){
-    window.location.href= '../html/cart.html'
-});
-
->>>>>>> 3b41d0f34b121f243d54aead859a3e4147866bdc
 import { gym_data_list, yoga_data_list, supplements_data_list } from "./data.js";
+var gym_products = gym_data_list;
+var yoga_products = yoga_data_list;
+var supplement_products = supplements_data_list;
 
-// this function will display all the products from the dataset and total all the product price
-
-function loading_all_products_details(){
-    var cart_total = 0;
-    const discountedGymProducts = gym_data_list;
-    discountedGymProducts.forEach(data => {
-        createCards(data);      //this will display the product cards on the cart page from the data set
-        var qty = data.quantity;
-        // single product Price
-        var single_product_price = data.discountPrice;
-        // multiplyting with quantity
-        var total_price = single_product_price * qty;
-        // adding into total to find out the total price of the all products
-        cart_total = cart_total + total_price;
-    });   
-
-    let final_price_container = document.getElementById('final_price');
-    final_price_container.innerHTML = `: $ ${cart_total}`; //this will print the total price to the front end
-
-    return cart_total;
-}
+var quantity = [];
 
 var cartProductContainer = document.getElementById('p');
 function createCards(data){
@@ -77,68 +37,79 @@ function createCards(data){
     cartProductContainer.appendChild(cardDiv);
 }
 
-function badge(count){
-    // product quantity on the cart logo in the navbar
-    var total_product_count =  count;
-    let cart_logo = document.getElementById('cart-nav');
-    cart_logo.innerHTML = `<span class="badge bg-danger">${total_product_count}</span>`;
-}
-
-function count_from_data(dataset){
-    var count = parseInt(0);
-    var badge_count_quanity = dataset; //I have to replce this dym_data_list to cart dataset
-    badge_count_quanity.forEach(p_qty =>{
-        count =  count + parseInt(p_qty.quantity); //this will count total quantity from the data set
-    });
-
-    return count; //this will return the total
-}
-
-
 function changed_qty(){
-    var changed_count = 0;
-    var dataset = gym_data_list;
     var qty = document.getElementsByClassName('cart-qty');
     var title = document.getElementsByClassName('card-title');
+    const cartBadge = document.getElementById('cart_items_badge');
     var changed_q = 0;
+    
     for (var i = 0; i < qty.length; i++) {
+        quantity.push(parseInt(1));
+        console.log(quantity[i]);
         // Create a closure to capture the value of i for each iteration
         (function(index) {
             qty[index].addEventListener('change', function() {
                 var found = false;
                 console.log(title[index].textContent); // Access title using captured index
                 changed_q = this.value; //this will set the variabel with new quantity
+                console.log(changed_q);
+                quantity[index] = parseInt(changed_q);
                 var product_name = title[index].textContent; // this will set the variable with the product name
-                // Find the product in the gym_data_list
-                var product = gym_data_list.find(item => item.productname === product_name);
-                if (product) {
-                    // Update the quantity of the product
-                      product.quantity = this.value;
-                      console.log(gym_data_list);            
-                      dataset = gym_data_list; 
-                    //   console.log(dataset);   
-                    found = true;    
+                console.log(quantity);
+                var total = parseInt(0);
+                for (var i = 0; i< quantity.length; i++){
+                    
+                    console.log(quantity[i]);
+                    total = total + parseInt(quantity[i]);
                 }
-                if(found)
-                {
-                    console.log(dataset);
-                    changed_count = count_from_data(dataset);
-                    badge(changed_count);
-                }
+                cartBadge.innerHTML = total;
             });
-
-            
         })(i); // Pass current value of i to the closure
     }
-    return dataset;
 }
 
 document.addEventListener('DOMContentLoaded', function(){
+    // from changes
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var arrayString = params.get('index_page_selected_products');    
+    var index_page_selected_products = JSON.parse(arrayString);
+    const cartBadge = document.getElementById('cart_items_badge');
+    cartBadge.innerHTML =  index_page_selected_products.length;
+    console.log(index_page_selected_products);
     
-    loading_all_products_details();     // This will show all the products from the cart
-
-    var initial_count = count_from_data(gym_data_list);  //whenever the page is loaded this will count the quantity from the dataset data.js
-    badge(initial_count);       // this will disaply the badge on the cart
-
-    changed_qty();  //this will detect the chanege inside the cart for quantity     
+    if (index_page_selected_products !== null) {
+        
+        //Process your data from here
+        const cartBadge = document.getElementById('cart_items_badge');
+        let total_cart_quantity = parseInt(0);
+        var total_cart_price = parseFloat(0);
+        index_page_selected_products.forEach(item => {
+            var cart_single_product1 = gym_products.filter(product => {
+                if(product.productid === item){
+                    createCards(product);
+                    total_cart_price = total_cart_price + product.discountPrice;
+                }
+            });
+            var cart_yoga_product1 = yoga_products.filter(product => {
+                if(product.productid === item){
+                    createCards(product);
+                    total_cart_price = total_cart_price + product.discountPrice;
+                }
+            });
+            var cart_supplement_product1 = supplement_products.filter(product => {
+                if(product.productid === item){
+                    createCards(product);
+                    total_cart_price = total_cart_price + product.discountPrice;
+                }
+            });
+        })
+        changed_qty();      
+    }
+    if(index_page_selected_products.length<1)
+    {
+        console.log('hello');
+        //I have to add text of empty cart
+        cartProductContainer.innerHTML =`<h1 class="empty">Cart is Empty</h1>`;
+    }     
 });

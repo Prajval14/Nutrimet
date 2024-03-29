@@ -22,6 +22,17 @@
     
 }
 
+#cart_row_1{
+    margin-top: 90px;
+}
+
+.empty{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50% -50%);
+}
+
 
 
 @media only screen and(max-width:991px){

@@ -17,11 +17,11 @@
     <!-- jQuery Reference -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- External CSS -->
-    <link rel="stylesheet" href="../css/common.css"> 
+    <link rel="stylesheet" href="../css/index.css"> 
     <link rel="stylesheet" href="../css/cart.css">   
     <!-- External JS -->
     <script src="../js/common.js"></script>
-    <script type="module src="../js/cart.js"></script>
+    <script type="module" src="../js/cart.js"></script>
     <!-- Naming convension:
     IDs - underscore(_)
     Class - dash(-) -->
@@ -30,35 +30,33 @@
 <body>
     <!-- Navbar -->
     <!-- Copy in other pages -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" id="navbar_id">
         <div class="container-fluid">
             <a class="navbar-brand active" href="../index.html">
-                <img src="../media/images/logo/main.png" alt="Nutrimet" width="50">
+                <img src="../media/images/logo/main.png" alt="NUtrimet" width="50">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle" id="navbar_toggler_icon_badge"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar_supported_content">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">     
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./aboutus.html">About</a>
+                        <a class="nav-link" aria-current="page" href="#">About Us</a>
+                    </li>               
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Gym Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Gym Accessories</a>
+                        <a class="nav-link" aria-current="page" href="#">Yoga Equipments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Yoga Equipments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Supplements</a>
-                    </li>
+                        <a class="nav-link" aria-current="page" href="#">Supplements</a>
+                    </li>                    
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex pe-4" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">                
                 </form>
+
                 <div class="btn-group align-items-center d-flex" role="group" id="nav_icons">
                     <button type="button" class="btn" id="nav_cart_button">
                         <i class="bi bi-cart2 fs-3"></i>
@@ -70,23 +68,74 @@
                         <a id="nav_login" class="ps-2 text-decoration-none"></a>
                     </button>
                 </div>                           
+
             </div>
         </div>
     </nav>
 
     <!-- content - 1 cart -->
-    <div class="container">
+    <div class="container" id="cart_row_1">
         <div class="row mt-3">
             <div class="col-md-8">
                 <div class="row" id="row1_1">
                     <p class="fs-4 fw-bold text-end">YOUR CART</p>
                 </div>
 
-                <div class="products" id="p"></div>
-                <!--  -->
+                <div class="products row-2" id="p">
+                    <!-- all the product in cart will be displayed in this div -->
+                </div>
+
+                <div class="row-3 mt-3 hide" id="checkout_form">
+                    <h3 class="text-center mb-4">Package Delivery Form (Canada)</h3>
+                    <form class="card p-3">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter your street address" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" placeholder="Enter your city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="province" class="form-label">Province</label>
+                                <input type="text" class="form-control" id="province" placeholder="Enter your province" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="postalCode" class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="postalCode" placeholder="Enter your postal code (e.g., A1A 1A1)" pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" required>
+                                <div class="invalid-feedback">Please provide a valid postal code in the format A1A 1A1.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="country" class="form-label">Country</label>
+                                <input type="text" class="form-control" id="country" value="Canada" disabled>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                            <div class="invalid-feedback">Please provide a valid phone number in the format XXX-XXX-XXXX.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form> 
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="r1c2">
                 <p class="fs-4 fw-bold text-end">SUMMARY</p>
+                <div class="summary card p-2">
+                    <h5 class="mt-2">Total Products: <span id="total_quantity">0 </span></h5>
+                    <h6>Sub Total: $ <span id="sub_total">0</span></h6>
+                    <h6>Taxes: $ <span id="taxes">0</span></h6>
+                    <hr>
+                    <h6>Total: $ <span id="total">0</span></h6>
+                    <button class="btn btn-primary mt-3 mb-1" id="btn_checkout">Checkout</button>
+                </div>
             </div>
         </div>
     </div>

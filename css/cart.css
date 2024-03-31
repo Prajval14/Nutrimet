@@ -11,3 +11,40 @@
     color: white;
     background-color: #000080;
 }
+
+.badge{
+    width: auto;
+    height: 20px;
+    font-size: 11px;
+    color: white;
+    margin-top: -8px;
+    margin-left: -13px;
+    
+}
+
+#cart_row_1{
+    margin-top: 90px;
+}
+
+.empty{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50% -50%);
+}
+
+.hide{
+    display: none;
+}
+
+
+
+@media only screen and(max-width:991px){
+    #cart_row_1{
+        width: 100% !important;
+    }
+    
+    #edit-product-cart{
+        /* flex-direction: row; */
+    }
+}

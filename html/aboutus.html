@@ -7,83 +7,65 @@
     <link rel="icon" href="./media/images/logo/main.png" type="image/x-icon" />
     <title>Nutrimet Official Store - Health & Wellness Essentials</title>
     <!-- Bootstrap CSS | JS | Icons CDN links -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- jQuery Reference -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- External CSS -->    
-    <link href="../css/common.css" rel="stylesheet">    
+    <!-- External CSS -->
     <link href="../css/about.css" rel="stylesheet">    
     <!-- External JS -->
-    <script type="module" src="../js/common.js"></script>
-    <script type="module" src="../js/about.js"></script>
+    <script src="../js/about.js"></script>
     <!-- Naming convension:
     IDs - underscore(_)
     Class - dash(-) -->
 </head>
 <body>
     <!-- Navbar -->
-    <!-- Copy in other pages -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+   
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand active" href="../index.html">
-                <img src="../media/images/logo/main.png" alt="Nutrimet" width="50">
+            <a class="navbar-brand active" href="about.html">
+                <img src="./media/images/logo/main.png" alt="Nutrimet" width="50">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle" id="navbar_toggler_icon_badge"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar_supported_content">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">     
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./aboutus.html">About</a>
+                        <a class="nav-link" aria-current="page" href="aboutus.html">About</a>
+                    </li>               
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="products.html">Gym Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Gym Accessories</a>
+                        <a class="nav-link" aria-current="page" href="products.html">Yoga Equipments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Yoga Equipments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link w-100" aria-current="page" href="./products.html">Supplements</a>
-                    </li>
+                        <a class="nav-link" aria-current="page" href="products.html">Supplements</a>
+                    </li>                    
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex pe-4" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">                
                 </form>
-                <div class="btn-group align-items-center d-flex" role="group" id="nav_icons">
-                    <button type="button" class="btn" id="nav_cart_button">
-                        <i class="bi bi-cart2 fs-3"></i>
-                        <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger mt-2" id="cart_items_badge"></span>
-                        <a id="nav_cart" class="ps-2 text-decoration-none"></a>
-                    </button>
-                    <button type="button" class="btn" id="nav_login_button">
-                        <i class="bi bi-person fs-3"></i>
-                        <a id="nav_login" class="ps-2 text-decoration-none"></a>
-                    </button>
-                </div>                           
+                <i class="bi bi-cart2 fs-3 pe-4"></i>
+                <a href="./html/signup.html" class="bi bi-person fs-3"></a>
             </div>
         </div>
     </nav>
-    <!-- About Us Content -->
 
-    <section id="about-us" class="container">
+   <!-- About Us Content -->
+<div class="container">
+    <section id="about-us" class="container mt-5">
         <div class="row">
             <!-- Our Story -->
             <div class="col-lg-6">
-                <img src="../media/images/test.jpg" alt="Our Story" class="img-fluid">
+                <img id="leadership-image" src="../media/images/aboutus/img1.jpg" alt="Our Story" class="img-fluid">
             </div>
             <div class="col-lg-6">
                 <h2 class="display-4 mb-4">Our Story</h2>
@@ -95,7 +77,7 @@
         <div class="row mt-5">
             <!-- Our Core Values -->
             <div class="col-lg-6 order-lg-2">
-                <img src="../media/images/test.jpg" alt="Our Core Values" class="img-fluid">
+                <img id="leadership-image"src="../media/images/aboutus/img2.jpg" alt="Our Core Values" class="img-fluid">
             </div>
             <div class="col-lg-6 order-lg-1">
                 <h2 class="display-4 mb-4">Our Core Values</h2>
@@ -110,7 +92,7 @@
         <div class="row mt-5">
             <!-- Our Mission -->
             <div class="col-lg-6">
-                <img src="../media/images/test.jpg" alt="Our Mission" class="img-fluid">
+                <img id="leadership-image" src="../media/images/aboutus/img3.png" alt="Our Mission" class="img-fluid">
             </div>
             <div class="col-lg-6">
                 <h2 class="display-4 mb-4">Our Mission</h2>
@@ -134,13 +116,16 @@
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img id="leadership-image" img src="../media/images/test.jpg" alt="Leadership Team" class="img-fluid mt-4">
+                    <img id="leadership-image" img src="../media/images/aboutus/img4.jpg" alt="Leadership Team" class="img-fluid mt-4" >
                 </div>
             </div>
         
     </section>
+
+   
+
     <!-- Footer -->
-    <!-- Copy in other pages -->
+    
     <footer class="d-flex flex-column justify-content-center text-center">
         <div class="btn-group w-100">
             <a href="#" class="btn"><i class="bi bi-facebook fs-3"></i></a>
@@ -148,7 +133,7 @@
             <a href="#" class="btn"><i class="bi bi-youtube fs-3"></i></a>
             <a href="#" class="btn"><i class="bi bi-twitter-x fs-3"></i></a>
             <a href="#" class="btn"><i class="bi bi-pinterest fs-3"></i></a>
-        </div>
+        </div>        
         <br>
         <a href="#" class="text-decoration-none">Terms & Conditions</a>
         <a href="#" class="text-decoration-none">Terms Of Use</a>
@@ -156,15 +141,15 @@
         <a href="#" class="text-decoration-none">Cookie Policy</a>
         <br>
         <div class="w-100" id="payment_images">
-            <img src="../media/images/payment/visa.png">
-            <img src="../media/images/payment/mastercard.png" alt="mastercard">
-            <img src="../media/images/payment/applepay.png" alt="applepay">
-            <img src="../media/images/payment/paypal.png" alt="paypal">
+            <img src="./media/images/payment/visa.png">
+            <img src="./media/images/payment/mastercard.png" alt="mastercard">
+            <img src="./media/images/payment/applepay.png" alt="applepay">
+            <img src="./media/images/payment/paypal.png" alt="paypal">
         </div>
         <br>
         <div class="bg-body-tertiary">
             <p class="pt-3">
-                <span id="current_Year"></span> |
+                <span id="current_Year">2024</span> |
                 Nutrimet Limited |
                 All Rights Reserved.
                 <br>
@@ -172,5 +157,7 @@
             </p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

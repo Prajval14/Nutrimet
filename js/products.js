@@ -1,7 +1,11 @@
-// products.js
-// Assuming ES6 imports are supported or processed through a bundler
 import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js';
 
+// Assuming all product lists are combined into one for rendering
+const allProducts = [...gym_data_list, ...yoga_data_list, ...supplements_data_list];
+const navbarBadge = document.getElementById('navbar_toggler_icon_badge');
+const cartBadge = document.getElementById('cart_items_badge');
+
+// Function to render all products
 function renderProducts(products) {
   const productsRow = document.getElementById("products-row");
   if (!productsRow) {
@@ -9,49 +13,64 @@ function renderProducts(products) {
     return;
   }
 
-  products.forEach((product) => {
+  products.forEach(product => {
     const colDiv = document.createElement("div");
     colDiv.classList.add("col-md-4", "mb-4");
 
     const price = product.isondiscount ? `$${product.discountPrice}` : `$${product.originalprice}`;
-    const starRating = getStarRating(product.rating);
     
-    const card = `
-        <div class="card h-100">
-          <img src="${product.imageURL}" class="card-img-top" alt="${product.productname}">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${product.productname}</h5>
-            <p class="card-text">${product.productdetail}</p>
-            <div class="mt-auto">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="text-primary">${price}</span>
-                <span class="star-rating">${starRating}</span>
-              </div>
+    // Include the Add to Cart button in the card HTML
+    const cardHTML = `
+      <div class="card h-100">
+        <img src="${product.imageURL}" class="card-img-top" alt="${product.productname}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${product.productname}</h5>
+          <p class="card-text">${product.productdetail}</p>
+          <div class="mt-auto">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-primary">${price}</span>
+              <button class="btn btn-primary add_to_cart_button" data-productid="${product.productid}">Add to cart</button>
             </div>
           </div>
         </div>
-      `;
+      </div>
+    `;
     
-    colDiv.innerHTML = card;
+    colDiv.innerHTML = cardHTML;
     productsRow.appendChild(colDiv);
+  });
+
+  attachEventListeners();
+}
+
+// Function to attach event listeners to the Add to Cart buttons
+function attachEventListeners() {
+  document.querySelectorAll('.add_to_cart_button').forEach(button => {
+    button.addEventListener('click', event => {
+      const productID = event.target.getAttribute('data-productid');
+      addProductToCart(productID);
+    });
   });
 }
 
-function getStarRating(rating) {
-  const roundedRating = Math.round(rating * 2) / 2; // Round to nearest 0.5
-  let starRating = '';
-  for (let i = 0; i < 5; i++) {
-    if (i < Math.floor(roundedRating)) {
-      starRating += '★'; // Full star
-    } else if (i < roundedRating) {
-      starRating += '⭐'; // Half star (use a different character if you prefer)
-    } else {
-      starRating += '☆'; // Empty star
-    }
+// Function to add a product to the cart
+function addProductToCart(productID) {
+  // Retrieve the current cart from localStorage, or initialize an empty array if null
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(productID);
+
+  // Update the cart in localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Optionally, update cart badge count here
+  if (cartBadge && navbarBadge) {
+    navbarBadge.style.display = 'flex';
+    cartBadge.textContent = cart.length;
   }
-  return starRating;
+  
+  // Provide user feedback
+  alert("Product added to cart!");
 }
 
-const allProducts = [...gym_data_list, ...yoga_data_list, ...supplements_data_list];
-
+// Render products on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => renderProducts(allProducts));

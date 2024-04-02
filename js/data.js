@@ -6,7 +6,7 @@ export const gym_data_list = [
         originalprice: 45, 
         discountPrice: 40,
         isondiscount: true,
-        imageURL: "../media/images/test.jpg",
+        imageURL: "https://images.stockcake.com/public/1/a/1/1a1488e1-7c36-4b29-aee6-701eccdabb6e_large/nutrition-focused-workout-stockcake.jpg",
         rating: 4.5
 
     },
@@ -17,7 +17,7 @@ export const gym_data_list = [
         originalprice: 30, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/weightlifting_gloves.jpg",
+        imageURL: "https://images.stockcake.com/public/1/7/c/17c3e09a-5fb4-467b-95c4-6cfe48d5faab_large/gym-workout-equipment-stockcake.jpg",
         rating: 4.0
 
     },
@@ -28,7 +28,7 @@ export const gym_data_list = [
         originalprice: 25, 
         discountPrice: 20,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_mat.jpg",
+        imageURL: "https://images.stockcake.com/public/a/2/f/a2fbb3fc-b0fa-473d-866c-e510a947f2c6_large/yoga-essentials-bundle-stockcake.jpg",
         rating: 4.2
 
     },
@@ -50,7 +50,7 @@ export const gym_data_list = [
         originalprice: 15, 
         discountPrice: 12,
         isondiscount: true,
-        imageURL: "https://example.com/shaker_bottle.jpg",
+        imageURL: "https://images.stockcake.com/public/e/0/0/e0059a2a-ef86-4fe0-b92c-095a6eb6ddc7_large/hydration-workout-essential-stockcake.jpg",
         rating: 4.1
 
     }

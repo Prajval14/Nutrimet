@@ -55,11 +55,16 @@ function toggleForms(formId) {
     sessionStorage.setItem('l_name',l_Name);
     var myModal = new bootstrap.Modal(document.getElementById('successModal'),{});
     myModal.show();
+    
 
-    document.getElementById('form-data').reset();
+    
     return false;
 }
-
+function closebutton()
+    {
+        toggleForms('loginForm'); 
+        document.getElementById('form-data').reset();
+    }
 
 function loginValidation()
 {

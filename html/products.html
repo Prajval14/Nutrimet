@@ -30,6 +30,11 @@
     <!-- Naming convension:
     IDs - underscore(_)
     Class - dash(-) -->
+    <style>
+        body {
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+    </style>
 </head>
 
 <body>
@@ -42,6 +47,8 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar_supported_content" aria-controls="navbar_supported_content"
                 aria-expanded="false" aria-label="Toggle navigation">
+                <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle"
+                    id="navbar_toggler_icon_badge"></span>
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar_supported_content">
@@ -65,7 +72,10 @@
                 <div class="btn-group align-items-center d-flex" role="group" id="nav_icons">
                     <button type="button" class="btn" id="nav_cart_button">
                         <i class="bi bi-cart2 fs-3"></i>
-                        <a id="nav_cart" class="ps-2"></a>
+                        <span
+                            class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger mt-2"
+                            id="cart_items_badge"></span>
+                        <a id="nav_cart" class="ps-2 text-decoration-none"></a>
                     </button>
                     <button type="button" class="btn" id="nav_login_button">
                         <i class="bi bi-person fs-3"></i>
@@ -76,18 +86,36 @@
         </div>
     </nav>
 
-    <div class="container">
-        <p class="fs-1 fw-bold">
-            Products
-        </p>
-        <div class="row mt-4">
-            <!-- Filters and sorting can be added here later -->
-            <!-- Filters and sorting can be added here later -->
+    <!-- Add a style class for additional spacing -->
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <!-- Empty container to create space -->
+            <div style="height: 50px;"></div> <!-- Adjust the height as needed -->
+
+            <h2 class="fw-bold">All Products</h2>
+
+            <div>
+                <select id="product_filter" class="form-select w-auto mx-auto">
+                    <option value="all">All Products</option>
+                    <option value="gym">Gym Accessories</option>
+                    <option value="yoga">Yoga Equipments</option>
+                    <option value="supplements">Supplements</option>
+                </select>
+            </div>
         </div>
-        <div id="products-row" class="row">
-            <!-- Products will be added here dynamically -->
-            <!-- Products will be added here dynamically -->
-        </div>
+    </div>
+
+
+
+    <div class="row mt-4 p-5">
+        <!-- Filters and sorting can be added here later -->
+        <!-- Filters and sorting can be added here later -->
+    </div>
+    <div id="products-row" class="row">
+        <!-- Products will be added here dynamically -->
+        <!-- Products will be added here dynamically -->
+    </div>
+
     </div>
 
     <script src="../js/products.js"></script>

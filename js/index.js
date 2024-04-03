@@ -27,6 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
         discountedSupplementProducts.forEach(data => createCards(data, supplementsContainer));
     }    
     
+    // Add event listeners to the navigation links
+    document.querySelectorAll('.index-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetDiv = document.querySelector(targetId);
+            targetDiv.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     //Setting up add to cart button after all cards are rendered
     handleAddToCart(); 
 
@@ -43,17 +55,17 @@ document.getElementById('supplement_left').addEventListener("click", () => handl
 document.getElementById('supplement_right').addEventListener("click", () => handleNavigation(1, 'supplements', discountedSupplementProducts, supplementsContainer));
 
 // Handling navbar cart and sign up on click event
-document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html');
-// document.getElementById('nav_login_button').addEventListener("click", () => window.location.href = './html/signup.html');
-
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
+document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
 //Functions defined
-function createCards(data, container) {    
+function createCards(data, container) {   
+    // debugger 
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
-        <div class="card" style="width: 21rem;">
-            <img src="./media/images/test.jpg" class="card-img-top" alt="...">
+        <div class="card" style="width: 20rem;">
+            <img src="${data.imageURL}" id="product_image_${data.productid}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="product-id d-none">${data.productid}</h5>
                 <h5 class="card-title">${data.productname}</h5>
@@ -69,6 +81,11 @@ function createCards(data, container) {
         </div>
     `;
     container.appendChild(cardDiv);
+
+    //Handling on click event for product images 
+    document.getElementById(`product_image_${data.productid}`).addEventListener("click", (event) => {
+        window.location.href = `./html/productdetails.html?selected_product=${JSON.stringify(data.productid)}`;
+    });
 }
 
 function handleNavigation(direction, category, dataList, container) {

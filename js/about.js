@@ -1,24 +1,51 @@
-// animation.js
-
-// Function to animate the image
-function animateImage() {
-    const image = document.getElementById('leadership-image');
-    let position = 0;
-    const interval = setInterval(() => {
-        position += 5; // Adjust this value to control the speed of the animation
-        image.style.transform = `translateY(${position}px)`;
-        // console.log("hi");
-        if (position >= 20) {
-            clearInterval(interval);
-            setTimeout(() => {
-                image.style.transform = 'translateY(0)';
-                setTimeout(animateImage, 1000); // To restart the animation after a delay
-            }, 1000); // To adjust this value to control the delay before restarting the animation
+document.addEventListener("DOMContentLoaded", function(event) {
+    animateOnScroll();
+  });
+  
+  function animateOnScroll() {
+    var images = document.querySelectorAll('#leadership-image');
+  
+    function fadeIn(element, duration) {
+      var opacity = 0;
+      var interval = 50;
+      var gap = interval / duration;
+  
+      function func() {
+        opacity += gap;
+  
+        if (opacity >= 1) {
+          clearInterval(fading);
         }
-    }, 100); // To adjust this value to control the interval between each movement
-}
-
-// Call the animateImage function when the page loads
-window.onload = function() {
-    animateImage();
-};
+  
+        element.style.opacity = opacity;
+      }
+  
+      var fading = setInterval(func, interval);
+    }
+  
+    function checkInView(element) {
+      var bounding = element.getBoundingClientRect();
+      return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  
+    function handleScroll() {
+      images.forEach(function(image) {
+        if (checkInView(image) && !image.classList.contains('animated')) {
+          fadeIn(image, 1000);
+          image.classList.add('animated');
+        }
+      });
+    }
+  
+    // Initial check when the page loads
+    handleScroll();
+  
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
+  }
+  

@@ -16,6 +16,9 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="form-container">
+          <button type="button" class="close" aria-label="Close"  onclick="closeDetails()">
+            <span aria-hidden="true">&times;</span>
+          </button>
           <h2 class="mb-4">Update Details</h2>
           <div class="form-group">
             <label for="Name" >Name</label>
@@ -36,6 +39,7 @@
               <textarea class="form-control" id="address" rows="3" placeholder="Enter address"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-danger mr-2" onclick="resetSession()">Logout</button>
           </form>
         </div>
       </div>

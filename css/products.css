@@ -1,0 +1,8 @@
+#add_to_cart_button {
+    background-color: #054F98;    
+}
+
+#add_to_cart_button.added {
+    background-color: #94BF9D;
+    color: black;
+}

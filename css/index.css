@@ -12,7 +12,7 @@
 }
 
 #row2_col1 {
-    background-image: url('https://images.stockcake.com/public/a/2/f/a2fbb3fc-b0fa-473d-866c-e510a947f2c6_large/yoga-essentials-bundle-stockcake.jpg');
+    background-image: url('https://images.stockcake.com/public/f/e/6/fe62c8ee-64e2-49e0-b0f9-fedbdec40a93_large/colorful-exercise-balls-stockcake.jpg');
     height: 500px;
     background-size: cover;
     margin: 0 auto;
@@ -32,7 +32,7 @@
 }
 
 #row5 {
-    background-image: url('https://images.stockcake.com/public/a/2/0/a20742d0-abc3-4890-a546-efa5b48bfd7f/gym-hydration-essential-stockcake.jpg');
+    background-image: url('https://images.stockcake.com/public/e/0/0/e0059a2a-ef86-4fe0-b92c-095a6eb6ddc7_large/hydration-workout-essential-stockcake.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;    
@@ -122,6 +122,10 @@
         display: none;
     }
     
+    #row5 {
+        background-image: url('https://images.stockcake.com/public/a/2/0/a20742d0-abc3-4890-a546-efa5b48bfd7f/gym-hydration-essential-stockcake.jpg');
+    }
+
     #row5 a {
         width: auto;
         margin: 0;

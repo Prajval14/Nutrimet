@@ -39,7 +39,7 @@ export const gym_data_list = [
         originalprice: 35, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/resistance_bands.jpg",
+        imageURL: "https://images.stockcake.com/public/6/a/4/6a488ebb-7d5f-4a43-9e1b-1fa0bc2c1113_large/focused-training-session-stockcake.jpg",
         rating: 4.3
 
     },
@@ -64,7 +64,7 @@ export const yoga_data_list = [
         originalprice: 10, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/yoga_block.jpg",
+        imageURL: "../media/images/products/yogablock.jpg",
         rating: 4.4
 
     },
@@ -75,7 +75,7 @@ export const yoga_data_list = [
         originalprice: 12, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_strap.jpg",
+        imageURL: "../media/images/products/yogastrap.png",
         rating: 4.6
 
     },
@@ -86,7 +86,7 @@ export const yoga_data_list = [
         originalprice: 30, 
         discountPrice: 25,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_wheel.jpg",
+        imageURL: "../media/images/products/yogawheel.jpg",
         rating: 4.7
 
     },
@@ -97,7 +97,7 @@ export const yoga_data_list = [
         originalprice: 20, 
         discountPrice: 18,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_towel.jpg",
+        imageURL: "https://images.stockcake.com/public/5/f/9/5f962ba3-33f3-41e7-b974-39146e6767d0_large/yoga-relaxation-essentials-stockcake.jpg",
         rating: 4.5
 
     },
@@ -108,7 +108,7 @@ export const yoga_data_list = [
         originalprice: 40, 
         discountPrice: 35,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_pants.jpg",
+        imageURL: "https://images.stockcake.com/public/0/f/c/0fce4869-6670-42a1-9820-42aad72fa2f1_large/indoor-yoga-practice-stockcake.jpg",
         rating: 4.4
     }
 ];

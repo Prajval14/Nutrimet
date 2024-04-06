@@ -7,7 +7,8 @@ export const gym_data_list = [
         discountPrice: 40,
         isondiscount: true,
         imageURL: "https://images.stockcake.com/public/1/a/1/1a1488e1-7c36-4b29-aee6-701eccdabb6e_large/nutrition-focused-workout-stockcake.jpg",
-        rating: 4.5
+        rating: 4.5,
+        total_quantity: 5
 
     },
     { 
@@ -18,7 +19,8 @@ export const gym_data_list = [
         discountPrice: 0,
         isondiscount: true,
         imageURL: "https://images.stockcake.com/public/1/7/c/17c3e09a-5fb4-467b-95c4-6cfe48d5faab_large/gym-workout-equipment-stockcake.jpg",
-        rating: 4.0
+        rating: 4.0,
+        total_quantity: 20
 
     },
     { 
@@ -29,7 +31,8 @@ export const gym_data_list = [
         discountPrice: 20,
         isondiscount: true,
         imageURL: "https://images.stockcake.com/public/a/2/f/a2fbb3fc-b0fa-473d-866c-e510a947f2c6_large/yoga-essentials-bundle-stockcake.jpg",
-        rating: 4.2
+        rating: 4.2,
+        total_quantity: 20
 
     },
     { 
@@ -40,7 +43,8 @@ export const gym_data_list = [
         discountPrice: 0,
         isondiscount: false,
         imageURL: "https://example.com/resistance_bands.jpg",
-        rating: 4.3
+        rating: 4.3,
+        total_quantity: 20
 
     },
     { 
@@ -51,7 +55,8 @@ export const gym_data_list = [
         discountPrice: 12,
         isondiscount: true,
         imageURL: "https://images.stockcake.com/public/e/0/0/e0059a2a-ef86-4fe0-b92c-095a6eb6ddc7_large/hydration-workout-essential-stockcake.jpg",
-        rating: 4.1
+        rating: 4.1,
+        total_quantity: 20
 
     }
 ];
@@ -65,7 +70,8 @@ export const yoga_data_list = [
         discountPrice: 0,
         isondiscount: false,
         imageURL: "https://example.com/yoga_block.jpg",
-        rating: 4.4
+        rating: 4.4,
+        total_quantity: 20
 
     },
     {
@@ -76,7 +82,8 @@ export const yoga_data_list = [
         discountPrice: 0,
         isondiscount: true,
         imageURL: "https://example.com/yoga_strap.jpg",
-        rating: 4.6
+        rating: 4.6,
+        total_quantity: 20
 
     },
     {
@@ -87,7 +94,8 @@ export const yoga_data_list = [
         discountPrice: 25,
         isondiscount: true,
         imageURL: "https://example.com/yoga_wheel.jpg",
-        rating: 4.7
+        rating: 4.7,
+        total_quantity: 20
 
     },
     {
@@ -98,7 +106,8 @@ export const yoga_data_list = [
         discountPrice: 18,
         isondiscount: true,
         imageURL: "https://example.com/yoga_towel.jpg",
-        rating: 4.5
+        rating: 4.5,
+        total_quantity: 20
 
     },
     {
@@ -109,7 +118,8 @@ export const yoga_data_list = [
         discountPrice: 35,
         isondiscount: true,
         imageURL: "https://example.com/yoga_pants.jpg",
-        rating: 4.4
+        rating: 4.4,
+        total_quantity: 20
     }
 ];
 
@@ -122,7 +132,8 @@ export const supplements_data_list = [
         discountPrice: 18,
         isondiscount: true,
         imageURL: "https://example.com/multivitamin_tablets.jpg",
-        rating: 4.4
+        rating: 4.4,
+        total_quantity: 20
     },
     {
         productid: 'sup_2',
@@ -132,7 +143,8 @@ export const supplements_data_list = [
         discountPrice: 0,
         isondiscount: false,
         imageURL: "https://example.com/fish_oil_capsules.jpg",
-        rating: 4.3
+        rating: 4.3,
+        total_quantity: 20
     },
     {
         productid: 'sup_3',
@@ -142,7 +154,8 @@ export const supplements_data_list = [
         discountPrice: 0,
         isondiscount: true,
         imageURL: "https://example.com/probiotic_supplements.jpg",
-        rating: 4.5
+        rating: 4.5,
+        total_quantity: 20
     },
     {
         productid: 'sup_4',
@@ -152,7 +165,8 @@ export const supplements_data_list = [
         discountPrice: 15,
         isondiscount: true,
         imageURL: "https://example.com/protein_bars.jpg",
-        rating: 4.2
+        rating: 4.2,
+        total_quantity: 20
     },
     {
         productid: 'sup_5',
@@ -162,6 +176,7 @@ export const supplements_data_list = [
         discountPrice: 30,
         isondiscount: true,
         imageURL: "https://example.com/collagen_powder.jpg",
-        rating: 4.6
+        rating: 4.6,
+        total_quantity: 20
     }
 ];

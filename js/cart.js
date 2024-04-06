@@ -2,12 +2,104 @@ import { gym_data_list, yoga_data_list, supplements_data_list } from "./data.js"
 var gym_products = gym_data_list;
 var yoga_products = yoga_data_list;
 var supplement_products = supplements_data_list;
+var cartProductContainer = document.getElementById('p');   
+var total_cart_price = 0; 
+ 
 
-var quantity = [];
 
-var cartProductContainer = document.getElementById('p');
+document.addEventListener('DOMContentLoaded',function(){
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var arrayString = params.get('index_page_selected_products');   
+    var index_page_selected_products = JSON.parse(arrayString);
+    // 1 -- checking weather the cart is empty or not
+    if(index_page_selected_products.length <1){
+        check_empty_cart(index_page_selected_products);
+    }
+    else{
+        //if cart is not empty then this code will be executed.
+        display_products(index_page_selected_products);
+        total_price();
+        let proxy = new Proxy(index_page_selected_products, {
+        get(target, property, receiver) {
+            if (property === 'splice') {
+                return function (...args) {
+                    return Reflect.apply(target[property], target, args);
+                }
+            }
+            return Reflect.get(target, property, receiver);
+        }
+        });
+        var list_product1 = document.querySelectorAll('.product_card');
+        list_product1.forEach(function(button){
+            button.addEventListener('click', function(){
+                var delete_btn = document.querySelectorAll('.delete_cart_product');        
+                var list_product = document.querySelectorAll('.product_card');
+                for (var i = 0; i < delete_btn.length; i++) {
+                    (function(index) {
+                        delete_btn[index].addEventListener('click', function() {
+                            proxy.splice(index, 1);
+                                list_product[index].remove();
+                                total_price();
+                        });
+                    })(i);
+                }
+                
+            });
+
+            changed_qty();
+        });
+    }    
+});
+
+// 1 -- function to check weather the cart is empty or not
+function check_empty_cart(product_list){
+    
+        var empty_div = document.createElement('div');
+        empty_div.classList = 'empty';
+        
+        
+        // fetching the products div from cart.html
+        var products = document.querySelector('.products');
+        products.style.position = 'relative';
+        products.appendChild(empty_div);
+        products.style.minHeight = '400px'; 
+        // products.style.border = '1px solid black';
+
+        empty_div.innerHTML = '<h3>Cart is Empty</h3>';
+        // empty_div.style.top = '50%';
+        // empty_div.style.left = '50%';
+        // empty_div.style.transform = ''
+}
+
+// 2-- function to display product on the screen
+function display_products(product_list){
+    product_list.forEach(item => {
+        var cart_single_product1 = gym_products.filter(product => {
+            if(product.productid === item){
+                createCards(product);
+                total_cart_price = total_cart_price + product.discountPrice;
+            }
+        });
+        var cart_yoga_product1 = yoga_products.filter(product => {
+            if(product.productid === item){
+                createCards(product);
+                total_cart_price = total_cart_price + product.discountPrice;
+            }
+        });
+        var cart_supplement_product1 = supplement_products.filter(product => {
+            if(product.productid === item){
+                createCards(product);
+                total_cart_price = total_cart_price + product.discountPrice;
+            }
+        });
+    });
+}
+
+// 3-- function to create design for the product in the cart
 function createCards(data){
     const cardDiv = document.createElement('div');
+        cardDiv.classList.add('product_card');
     cardDiv.innerHTML = `
         <div class="card mb-3" >
             <div class="row no-gutters">
@@ -22,7 +114,9 @@ function createCards(data){
                         <div class="d-flex justify-content-between align-items-end mt-auto"  id="edit-product-cart">
                             <span>
                             <label for="qty">Qty:</label>
-                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="20" value="1">
+                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="${data.total_quantity}" value="1">
+
+                            <p>In stock: ${data.total_quantity}</p>
                             </span>
                             <span>
                                 <i class="bi bi-trash3 fs-4 bg delete_cart_product" data-toggle="tooltip" data-placement="bottom" title="Delete from the cart"></i>
@@ -36,16 +130,23 @@ function createCards(data){
     cartProductContainer.appendChild(cardDiv);
 }
 
-
+// 4 -- function to calculate total price
 
 function total_price(){
     var price = document.getElementsByClassName('only-price');
+    var cart_quantity = document.querySelectorAll('.cart-qty');
+    var total_product = document.getElementById('total_quantity');
+    var badge = document.getElementById('cart_items_badge');
+    var total_count = 0;
     var price_of_cart = parseFloat(0);
-    for(var i=0; i<quantity.length; i++){
-        price_of_cart = price_of_cart + (parseFloat(price[i].textContent) * parseFloat(quantity[i]));
+    for(var i=0; i<price.length; i++){
+        console.log(price[i].textContent);
+        console.log(cart_quantity[i].value);
+        price_of_cart = price_of_cart + (price[i].textContent * cart_quantity[i].value);
+        total_count = total_count + parseInt(cart_quantity[i].value); 
     }
 
-    // console.log(price_of_cart);
+    console.log(price_of_cart);
     var sub_total = document.getElementById('sub_total');
     var tax = document.getElementById('taxes');
     sub_total.innerHTML = `${price_of_cart}`
@@ -55,157 +156,34 @@ function total_price(){
     var sum = tax_calculation + price_of_cart;
     var total = document.getElementById('total');
     total.innerHTML = `${sum}`;
+    total_product.innerHTML = total_count;
+    badge.innerHTML = total_count;
+
+    if(total_count == 0){
+        check_empty_cart();
+    }
 }
 
+// 5 - function to keep any eye on the quantity
 function changed_qty(){
     var qty = document.getElementsByClassName('cart-qty');
     var total_product = document.getElementById('total_quantity');
+    // var total_count = 0;
     var title = document.getElementsByClassName('card-title');
-    const cartBadge = document.getElementById('cart_items_badge');
     var changed_q = 0;
     for (var i = 0; i < qty.length; i++) {
-        quantity.push(parseInt(1));
         // Create a closure to capture the value of i for each iteration
+        // total_count = total_count + parseInt(qty[i].value); 
         (function(index) {
             qty[index].addEventListener('change', function() {
                 console.log(title[index].textContent); // Access title using captured index
                 changed_q = this.value; //this will set the variabel with new quantity
                 console.log(changed_q);
-                quantity[index] = parseInt(changed_q);
-                var product_name = title[index].textContent; // this will set the variable with the product name
-                // console.log(quantity);
-                var total = parseInt(0);
-                for (var i = 0; i< quantity.length; i++){
-                    // console.log(quantity[i]);
-                    total = total + parseInt(quantity[i]);
-                }
-                cartBadge.innerHTML = total;
-                
-                total_product.innerHTML = `${total}`;
                 total_price();
             });
         })(i); // Pass current value of i to the closure
+        // total_count = total_count + parseInt(qty[i].value); 
     }
+    // total_product.innerHTML = total_count;
     
 }
-
-document.addEventListener('DOMContentLoaded', function(){
-    // from changes
-    var queryString = window.location.search;
-    var params = new URLSearchParams(queryString);
-    var arrayString = params.get('index_page_selected_products');    
-    var index_page_selected_products = JSON.parse(arrayString);
-    const cartBadge = document.getElementById('cart_items_badge');
-    cartBadge.innerHTML =  index_page_selected_products.length;
-    var total_product = document.getElementById('total_quantity');
-    total_product.innerHTML = `${index_page_selected_products.length}`;
-
-    if (index_page_selected_products !== null) {
-        // display_products(index_page_selected_products);
-        console.log('display products');
-        const cartBadge = document.getElementById('cart_items_badge');
-        var total_cart_price = parseFloat(0);
-        index_page_selected_products.forEach(item => {
-            var cart_single_product1 = gym_products.filter(product => {
-                if(product.productid === item){
-                    createCards(product);
-                    total_cart_price = total_cart_price + product.discountPrice;
-                }
-            });
-            var cart_yoga_product1 = yoga_products.filter(product => {
-                if(product.productid === item){
-                    createCards(product);
-                    total_cart_price = total_cart_price + product.discountPrice;
-                }
-            });
-            var cart_supplement_product1 = supplement_products.filter(product => {
-                if(product.productid === item){
-                    createCards(product);
-                    total_cart_price = total_cart_price + product.discountPrice;
-                }
-            });
-        });
-        changed_qty();      
-        console.log(total_cart_price);
-        total_price();
-
-        var deleteBtns = document.querySelectorAll('.delete_cart_product');
-        deleteBtns.forEach((btn, index) => {
-            btn.addEventListener('click', function(event) {
-                // Prevent the click event from propagating to parent elements
-                event.stopPropagation();
-    
-                // Find the index of the clicked delete button
-                var currentIndex = Array.from(deleteBtns).indexOf(btn);
-    
-                // Delete the product at the currentIndex
-                deleteProduct(currentIndex);
-            });
-        });
-        
-    }
-    if(index_page_selected_products.length<1)
-    {
-        console.log('hello');
-        //I have to add text of empty cart
-        cartProductContainer.innerHTML =`<h1 class="empty">Cart is Empty</h1>`;
-    }    
-    
-    
-
-
-
-
-
-
-    // checkout form
-    var checkoutbtn = document.getElementById('btn_checkout');
-    checkoutbtn.addEventListener('click', function(){
-        var total = document.getElementById('total');
-        if(parseInt(total.textContent) == 0){
-            alert('your cart is empty!!');
-        }
-        else{
-            console.log(total.textContent);
-            var checkout_form = document.getElementById('checkout_form');
-            var row1_1 = document.getElementById('row1_1');
-            var products = document.getElementById('p');
-            
-            if(checkoutbtn.innerHTML == `Back`){
-                checkoutbtn.innerHTML = `Checkout`;
-            }
-            else{
-                checkoutbtn.innerHTML = `Back`;
-            }
-            row1_1.classList.toggle('hide');
-            products.classList.toggle('hide');
-            checkout_form.classList.toggle('hide');
-        }
-        
-    })
-});
-
-
-
-function deleteProduct(index) {
-    // Check if the index is valid
-    if (index < 0 || index >= document.querySelectorAll('.card').length) {
-        console.error("Invalid index:", index);
-        return; // Exit the function if the index is invalid
-    }
-
-    // Remove the corresponding product from the DOM
-    var productDiv = document.querySelectorAll('.card')[index];
-    productDiv.parentNode.removeChild(productDiv);
-
-    // Remove the corresponding quantity from the quantity array
-    quantity.splice(index, 1);
-
-    // Recalculate the total price and update the displayed total
-    total_price();
-
-    // Update the badge showing the total number of items in the cart
-    var totalProduct = document.getElementById('total_quantity');
-    totalProduct.innerHTML = quantity.length;
-}
-

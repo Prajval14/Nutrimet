@@ -8,39 +8,127 @@
     margin: 0;
 }
 
+
 .heightbox{
     height: 100vh;
 }
 
+.form-text button
+{
+    margin-top: 0px !important;
+}
+
+.cylindrical-border-container {
+    width: auto; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50px; /* Half of the height for cylindrical effect */
+    /* border: 1px solid black;  */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background-color: #e7e7e7;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+/* Styles for the cylindrical content */
+.cylindrical-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: auto; /* Adjust to 70% of the parent container's height */
+}
+
+/* Styles for the cylindrical button */
+.cylindrical-btn {
+    width: 150px; /* Adjust button width */
+    height: 50% !important; /* Full height */
+    border: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px; /* Add padding to increase clickable area */
+    position: relative;
+    z-index: 1; /* Ensure button text is on top of slider */
+    border-radius: 15px;
+   
+}
+
+/* Active button style */
+.active-button {
+    background-color: #ffffff; /* Change background color for active button */
+}
+
+
+
+.text-overlay {
+    position: absolute;
+    bottom: 35%; /* Position the text at the vertical center */
+    left: 20px; /* Adjust the left position as needed */
+    transform: translateY(50%); /* Move the text up by half of its height */
+    text-align: left; /* Align text to the left */
+    color: rgb(255, 255, 255); /* Text color */
+    padding: 20px;  /* Add padding for better readability */
+}
+
+.text-overlay h2 {
+    font-size: 34px; /* Adjust heading font size */
+    margin-bottom: 10px; /* Add some space below the heading */
+    font-weight: bold;
+}
+
+.text-overlay p {
+    font-size: 16px; /* Adjust paragraph font size */
+    margin: 0; /* Remove default margin */
+}
 
 
 .leftimage{
-    background-image: url('../media/images/test.jpg');
+    background-image: url('../media/images/main.jpg');
     background-size: cover;
     background-position: center;
 }
 
 
-.decorative-title{
-    font-size: 26px;
-    color: #333;
-    text-transform: uppercase;
-    text-align: center;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+.form-group{
+    min-width: 350px;
 }
 
-.form-group{
-    width: 350px;
+.form-control{
+
+    border: 2px solid #e7e7e7;
+}
+.bagcolor{
+    background-color:  #e7e7e7;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #e7e7e7 !important;
+}
+
+.bagcolor:hover{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ccc !important;
+    color: black !important;
 }
 .form-text label
 {
     font-weight: bold;
     font-size: 18px;
-    color: white;
+    color:  #333333;
 }
 
+input {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+input:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover */
+}
 .form-text button
 {
     margin-top: 15px;
@@ -65,10 +153,6 @@
 }
 
 
-.active-button {
-    background-color:#0d6efd;
-    
-}
 
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -82,11 +166,11 @@
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .leftimage
     {
-        height: 100%;
-        background-image: url('../media/images/test.jpg');
-        background-size: cover;
-        background-position: center;
-        background-color: aqua;   
+        display: none;
+    }
+
+    .rightbox{
+        width: 100% !important;
     }
 }
 

@@ -2,21 +2,42 @@
 function toggleForms(formId) {
   var signupForm = document.getElementById("signupForm");
   var loginForm = document.getElementById("loginForm");
+  const cylindricalContainer = document.getElementById('cylindricalContainer');
+  const slider = document.getElementById('slider');
+  var indicator = document.querySelector('.indicator');
   var signupButton = document.getElementById("signupButton");
   var loginButton = document.getElementById("loginButton");
 
   if (formId === "signupForm") {
     signupForm.style.display = "block";
     loginForm.style.display = "none";
-    signupButton.classList.add("active-button");
-    loginButton.classList.remove("active-button");
+    slider.style.transform = 'translateX(0)';
+    signupButton.classList.add('active-button');
+    loginButton.classList.remove('active-button');
   } else if (formId === "loginForm") {
     signupForm.style.display = "none";
     loginForm.style.display = "block";
-    loginButton.classList.add("active-button");
-    signupButton.classList.remove("active-button");
+    slider.style.transform = 'translateX(100%)';
+    signupButton.classList.remove('active-button');
+    loginButton.classList.add('active-button');
   }
 }
+
+function changeText() {
+  var textHeadings = ["TRACK YOUR ORDERS", "SHOP YOUR WAY","SAVE WHAT YOU SEE", 
+                      "FREE NUTRIMET TRAIN ACCESS"];
+  var textDescriptions = ["Keep track the status of your orders", 
+                        "Discover the latest launches and be the first to get notifications for new drops",
+                        "Save your most-loved activewear pieces to build your perfect outfit",
+                        "Level up your training, with The Nutrimets Product"];
+  var index = Math.floor(Math.random() * textHeadings.length);
+
+  document.getElementById('textHeading').textContent = textHeadings[index];
+  document.getElementById('textDescription').textContent = textDescriptions[index];
+}
+
+// Change text content every 3 seconds
+setInterval(changeText, 3000);
 
 function validateForms() {
   var password = document.getElementById("password").value;

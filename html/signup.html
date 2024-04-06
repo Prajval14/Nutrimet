@@ -20,13 +20,16 @@
 
 <body>
   <!-----------------------------Main Container------------------------>
-  <div class="container-fluid" style="background:rgb(14, 12, 12);">
+  <div class="container-fluid" style="background-color: #ffffff ;">
     <div class="row no-gutters heightbox">
       <!-----------------------------Left Box------------------------------->
       <div class="col-md-6 p-0 leftbox">
 
         <div class="box leftimage">
-
+          <div class="text-overlay" id="textOverlay">
+            <h2 id="textHeading">TRACK YOUR ORDERS</h2>
+            <p id="textDescription">Keep track the status of your orders </p>
+        </div>
         </div>
       </div>
 
@@ -38,21 +41,20 @@
             <div class="row justify-content-between align-items-center">
               <div class="col-12 text-center">
                 <img src="../media/images/logo/main.png" class="img-fluid" alt="Centered Image"
-                  style="width: 131px; height: 124px;">
+                  style="width: 151px; height: 124px;">
               </div>
             </div>
-            <div class="container container-highlight">
-              <div class="row justify-content-center ">
-                <div class="col-auto">
-                  <button type="button" id="signupButton" class="btn btn-secondary active-button"
-                    onclick="toggleForms('signupForm')">Sign Up</button>
+
+              <div class="cylindrical-border-container d-flex justify-content-center mb-3">
+                <div class="cylindrical-container" id="cylindricalContainer">
+                    <div class="cylindrical-container slidercylinder">
+                        <button type="button" id="signupButton" class="cylindrical-btn active-button" onclick="toggleForms('signupForm')">Sign Up</button>   
+                        <button type="button" id="loginButton" class="cylindrical-btn" onclick="toggleForms('loginForm')">Log In</button>   
+                        <div class="slider" id="slider"></div>
+                    </div>
                 </div>
-                <div class="col-auto">
-                  <button type="button" id="loginButton" class="btn btn-secondary"
-                    onclick="toggleForms('loginForm')">Log In</button>
-                </div>
-              </div>
             </div>
+          
             <div class="toggle-form" id="signupForm">
               <form id="form-data" onsubmit=" return validateForms()">
                 <div class="form-group">
@@ -80,7 +82,7 @@
                     required>
                   <div class="invalid-feedback" id="confirmPasswordError"></div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block form-control">Create Account</button>
+                <button type="submit" class="btn btn-primary btn-block form-control bagcolor">Create Account</button>
             </div>
             </form>
             <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
@@ -109,7 +111,7 @@
                   <label for="loginPassword">Password</label>
                   <input type="lgpassword" class="form-control" id="loginPassword" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block form-control">Login</button>
+                <button type="submit" class="btn btn-primary btn-block form-control bagcolor">Login</button>
               </form>
 
             </div>

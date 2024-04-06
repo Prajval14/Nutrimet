@@ -8,6 +8,17 @@
     margin: 0;
 }
 
+.heightbox{
+    height: 100vh;
+}
+
+
+
+.leftimage{
+    background-image: url('../media/images/test.jpg');
+    background-size: cover;
+    background-position: center;
+}
 
 
 .decorative-title{
@@ -59,3 +70,26 @@
     
 }
 
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  
+   .leftbox{
+    display: none;
+   }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .leftimage
+    {
+        height: 100%;
+        background-image: url('../media/images/test.jpg');
+        background-size: cover;
+        background-position: center;
+        background-color: aqua;   
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+  
+}

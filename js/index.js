@@ -1,5 +1,7 @@
+// Importing data from data.js file
 import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js';
 
+//Declaring constants for html elements and data
 const gymContainer = document.getElementById('gym_data_container');
 const yogaContainer = document.getElementById('yoga_data_container');
 const footerYear = document.getElementById('current_Year');
@@ -11,14 +13,18 @@ const discountedGymProducts = gym_data_list.filter(product => product.isondiscou
 const discountedYogaProducts = yoga_data_list.filter(product => product.isondiscount);
 const discountedSupplementProducts = supplements_data_list.filter(product => product.isondiscount);
 
+//Declaring empty arrays to send data to add to cart page
 const instanceCart = [];
 const myCart = [];
 
+//Defining index of data cards to render on front page
 let gymIndex = 0;
 let yogaIndex = 0;
 let supplementsIndex = 0;
 
+//Function which triggers on complete html document loaded in browser
 document.addEventListener('DOMContentLoaded', function () {
+    //Handling cards rendering based on screen size
     if (window.innerWidth < 1025) {
         createCards(discountedGymProducts[0], gymContainer);
         createCards(discountedYogaProducts[0], yogaContainer);
@@ -61,8 +67,8 @@ document.getElementById('nav_cart_button').addEventListener("click", () => windo
 document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
 //Functions defined
+//Function to create cards of data
 function createCards(data, container) {
-    // debugger
     const cardDiv = document.createElement('div');
     cardDiv.className = 'col p-3';
     cardDiv.innerHTML = `
@@ -85,12 +91,13 @@ function createCards(data, container) {
     `;
     container.appendChild(cardDiv);
 
-    //Handling on click event for product images 
+    //Handling on click event for product images - navigate to product details page
     document.getElementById(`product_image_${data.productid}`).addEventListener("click", (event) => {
         window.location.href = `./html/productdetails.html?selected_product=${JSON.stringify(data.productid)}`;
     });
 }
 
+//Function to handle navigation of cards for mobile view
 function handleNavigation(direction, category, dataList, container) {
     switch (category) {
         case 'gym':
@@ -110,23 +117,26 @@ function handleNavigation(direction, category, dataList, container) {
     }
 }
 
+//Function to show cards with data and related containers
 function showCard(index, dataList, container) {
     container.innerHTML = '';
     createCards(dataList[index], container);
 }
 
+//Function to handle when clicked on add to cart
 function handleAddToCart() {
     const addToCartButtons = document.querySelectorAll('.add_to_cart_button');
     addToCartButtons.forEach(button => button.addEventListener("click", (event) => addProductToCart(event)));
 }
 
+//Funtion to handle cart data and store them to send it further to cart page
 function addProductToCart(event) {
     const productID = event.target.closest('.card').querySelector('.product-id').textContent;
     const productQuantity = event.target.closest('.card').querySelector('.total-quantity').textContent;
     const button = event.target;
-    // debugger
     instanceCart.push(productID);
     const productCount = myCart.filter(item => item === productID).length;
+    // Validating add to cart with actual product's stock
     if (productCount >= productQuantity) {
         $(button).attr({
             'data-bs-toggle': 'tooltip',
@@ -150,16 +160,13 @@ function addProductToCart(event) {
     cartBadge.innerHTML = myCart.length;
 }
 
+//Urvesh Patel
 function toggleValidation() {
-
     var isValid = sessionStorage.getItem("isValid");
-
     // If isValid is null or false, redirect to signup.html
     if (!isValid || isValid === "false") {
-        // Redirect to signup.html
         window.location.href = './html/signup.html';
     } else {
-        // Redirect to products.html
         window.location.href = './html/details.html';
     }
 }

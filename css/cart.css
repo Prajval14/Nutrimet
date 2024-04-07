@@ -37,6 +37,10 @@
     display: none;
 }
 
+#p{
+    margin-bottom: 100px;
+}
+
 
 
 @media only screen and(max-width:991px){
@@ -47,4 +51,7 @@
     #edit-product-cart{
         /* flex-direction: row; */
     }
+}
+
+@media only screen and (max-width:767.9px){
 }

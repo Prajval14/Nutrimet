@@ -31,9 +31,6 @@ document.addEventListener('DOMContentLoaded',function(){
             countedNames.push(productName);
         }
     }
-    
-    console.log(quantity);
-    console.log(countedNames);
 
     // set up the footer
     window.onload = function() {
@@ -41,13 +38,8 @@ document.addEventListener('DOMContentLoaded',function(){
         var hasScrollbar = document.documentElement.clientHeight < document.body.scrollHeight;
         
         if (hasScrollbar) {
-          console.log('Vertical scrollbar is present');
-          // You can take appropriate actions here if scrollbar is present
-          
-          
           
         } else {
-          console.log('No vertical scrollbar is present');
         //   footer.classList.toggle('fixed-bottom');
         footer.classList.toggle('fixed-bottom');
         
@@ -97,7 +89,6 @@ document.addEventListener('DOMContentLoaded',function(){
                                 var hasScrollbar = document.documentElement.clientHeight < document.body.scrollHeight;
                                 
                                 if (hasScrollbar) {
-                                    console.log('Vertical scrollbar is present');
                                     if(footer.classList.contains('fixed-bottom')){
                                         footer.classList.remove('fixed-bottom');
                                     }
@@ -105,7 +96,6 @@ document.addEventListener('DOMContentLoaded',function(){
                                 // You can take appropriate actions here if scrollbar is present
                                 
                                 } else {
-                                console.log('No vertical scrollbar is present');
                                     if(footer.classList.contains('fixed-bottom')){
                                         
                                     }
@@ -133,7 +123,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 alert('your cart is empty!!');
             }
             else{
-                console.log(total.textContent);
                 var checkout_form = document.getElementById('checkout_form');
                 var row1_1 = document.getElementById('row1_1');
                 var products = document.getElementById('p');
@@ -269,9 +258,7 @@ function changed_qty(){
         // total_count = total_count + parseInt(qty[i].value); 
         (function(index) {
             qty[index].addEventListener('change', function() {
-                console.log(title[index].textContent); // Access title using captured index
                 changed_q = this.value; //this will set the variabel with new quantity
-                console.log(changed_q);
                 total_price();
             });
         })(i); // Pass current value of i to the closure

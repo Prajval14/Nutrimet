@@ -4,6 +4,7 @@ var yoga_products = yoga_data_list;
 var supplement_products = supplements_data_list;
 var cartProductContainer = document.getElementById('p');   
 var total_cart_price = 0; 
+var quantity = [];
  
 
 
@@ -12,15 +13,57 @@ document.addEventListener('DOMContentLoaded',function(){
     var params = new URLSearchParams(queryString);
     var arrayString = params.get('index_page_selected_products');   
     var index_page_selected_products = JSON.parse(arrayString);
+    var countedNames = []; // Array to keep track of counted names
+    
+    for (var i = 0; i < index_page_selected_products.length; i++) {
+        var productName = index_page_selected_products[i];
+        
+        // Check if the name has already been counted
+        if (!countedNames.includes(productName)) {
+            var count = 0;
+            for (var j = 0; j < index_page_selected_products.length; j++) {
+                if (index_page_selected_products[j] === productName) {
+                    count++;
+                }
+            }
+            quantity.push(count);
+            // Add the name to the list of counted names
+            countedNames.push(productName);
+        }
+    }
+
+    // set up the footer
+    window.onload = function() {
+        var footer = document.getElementById('footer');
+        var hasScrollbar = document.documentElement.clientHeight < document.body.scrollHeight;
+        
+        if (hasScrollbar) {
+          
+        } else {
+        //   footer.classList.toggle('fixed-bottom');
+        footer.classList.toggle('fixed-bottom');
+        
+        }
+      }
+
+
     // 1 -- checking weather the cart is empty or not
     if(index_page_selected_products.length <1){
         check_empty_cart(index_page_selected_products);
+        var checkoutbtn = document.getElementById('btn_checkout');
+        checkoutbtn.addEventListener('click', function(){
+            var total = document.getElementById('total_quantity');
+            if(total.textContent == 0){
+                alert('your cart is empty!!');
+            }
+            
+        });
     }
     else{
         //if cart is not empty then this code will be executed.
-        display_products(index_page_selected_products);
+        display_products(countedNames);
         total_price();
-        let proxy = new Proxy(index_page_selected_products, {
+        let proxy = new Proxy(countedNames, {
         get(target, property, receiver) {
             if (property === 'splice') {
                 return function (...args) {
@@ -41,13 +84,59 @@ document.addEventListener('DOMContentLoaded',function(){
                             proxy.splice(index, 1);
                                 list_product[index].remove();
                                 total_price();
+
+                                var footer = document.getElementById('footer');
+                                var hasScrollbar = document.documentElement.clientHeight < document.body.scrollHeight;
+                                
+                                if (hasScrollbar) {
+                                    if(footer.classList.contains('fixed-bottom')){
+                                        footer.classList.remove('fixed-bottom');
+                                    }
+                                
+                                // You can take appropriate actions here if scrollbar is present
+                                
+                                } else {
+                                    if(footer.classList.contains('fixed-bottom')){
+                                        
+                                    }
+                                    else{
+                                        footer.classList.add('fixed-bottom');
+                                    }
+                                }
                         });
                     })(i);
+
+                    
                 }
                 
             });
-
             changed_qty();
+
+                
+              
+        });
+
+        var checkoutbtn = document.getElementById('btn_checkout');
+        checkoutbtn.addEventListener('click', function(){
+            var total = document.getElementById('total_quantity');
+            if(total.textContent == 0){
+                alert('your cart is empty!!');
+            }
+            else{
+                var checkout_form = document.getElementById('checkout_form');
+                var row1_1 = document.getElementById('row1_1');
+                var products = document.getElementById('p');
+                
+                if(checkoutbtn.innerHTML == 'Back'){
+                    checkoutbtn.innerHTML = 'Checkout';
+                }
+                else{
+                    checkoutbtn.innerHTML = 'Back';
+                }
+                row1_1.classList.toggle('hide');
+                products.classList.toggle('hide');
+                checkout_form.classList.toggle('hide');
+            } 
         });
     }    
 });
@@ -58,38 +147,35 @@ function check_empty_cart(product_list){
         var empty_div = document.createElement('div');
         empty_div.classList = 'empty';
         
-        
         // fetching the products div from cart.html
         var products = document.querySelector('.products');
         products.style.position = 'relative';
         products.appendChild(empty_div);
-        products.style.minHeight = '400px'; 
+        products.style.minHeight = '100px'; 
         // products.style.border = '1px solid black';
 
         empty_div.innerHTML = '<h3>Cart is Empty</h3>';
-        // empty_div.style.top = '50%';
-        // empty_div.style.left = '50%';
-        // empty_div.style.transform = ''
+        
 }
 
 // 2-- function to display product on the screen
 function display_products(product_list){
-    product_list.forEach(item => {
+    product_list.forEach((item, index) => {
         var cart_single_product1 = gym_products.filter(product => {
             if(product.productid === item){
-                createCards(product);
+                createCards(product, index);
                 total_cart_price = total_cart_price + product.discountPrice;
             }
         });
         var cart_yoga_product1 = yoga_products.filter(product => {
             if(product.productid === item){
-                createCards(product);
+                createCards(product, index);
                 total_cart_price = total_cart_price + product.discountPrice;
             }
         });
         var cart_supplement_product1 = supplement_products.filter(product => {
             if(product.productid === item){
-                createCards(product);
+                createCards(product, index);
                 total_cart_price = total_cart_price + product.discountPrice;
             }
         });
@@ -97,7 +183,7 @@ function display_products(product_list){
 }
 
 // 3-- function to create design for the product in the cart
-function createCards(data){
+function createCards(data, index){
     const cardDiv = document.createElement('div');
         cardDiv.classList.add('product_card');
     cardDiv.innerHTML = `
@@ -114,7 +200,7 @@ function createCards(data){
                         <div class="d-flex justify-content-between align-items-end mt-auto"  id="edit-product-cart">
                             <span>
                             <label for="qty">Qty:</label>
-                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="${data.total_quantity}" value="1">
+                            <input type="number" id="cart_qty" class="cart-qty" min="1" max="${data.total_quantity}" value="${quantity[index]}">
 
                             <p>In stock: ${data.total_quantity}</p>
                             </span>
@@ -140,13 +226,9 @@ function total_price(){
     var total_count = 0;
     var price_of_cart = parseFloat(0);
     for(var i=0; i<price.length; i++){
-        console.log(price[i].textContent);
-        console.log(cart_quantity[i].value);
         price_of_cart = price_of_cart + (price[i].textContent * cart_quantity[i].value);
         total_count = total_count + parseInt(cart_quantity[i].value); 
     }
-
-    console.log(price_of_cart);
     var sub_total = document.getElementById('sub_total');
     var tax = document.getElementById('taxes');
     sub_total.innerHTML = `${price_of_cart}`
@@ -176,9 +258,7 @@ function changed_qty(){
         // total_count = total_count + parseInt(qty[i].value); 
         (function(index) {
             qty[index].addEventListener('change', function() {
-                console.log(title[index].textContent); // Access title using captured index
                 changed_q = this.value; //this will set the variabel with new quantity
-                console.log(changed_q);
                 total_price();
             });
         })(i); // Pass current value of i to the closure
@@ -187,3 +267,9 @@ function changed_qty(){
     // total_product.innerHTML = total_count;
     
 }
+
+
+
+
+  
+  //------------------------------------

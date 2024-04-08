@@ -112,7 +112,7 @@
 }
 
 .leftimage {
-    background-image: url('https://i.postimg.cc/6pg0bV06/main.jpg');
+    background-image: url('../media/images/signup_page.jpg');
     background-size: cover;
     background-position: center;
 }

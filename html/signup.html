@@ -42,14 +42,14 @@
               <div class="cylindrical-border-container d-flex justify-content-center mb-3">
                 <div class="cylindrical-container" id="cylindricalContainer">
                     <div class="cylindrical-container slidercylinder">
-                        <button type="button" id="signupButton" class="cylindrical-btn active-button" onclick="toggleForms('signupForm')">SIGN UP</button>   
-                        <button type="button" id="loginButton" class="cylindrical-btn" onclick="toggleForms('loginForm')">LOG IN</button>   
+                        <button type="button" id="signupButton" class="cylindrical-btn " onclick="toggleForms('signupForm')">SIGN UP</button>   
+                        <button type="button" id="loginButton" class="cylindrical-btn active-button" onclick="toggleForms('loginForm')">LOG IN</button>   
                         <div class="slider" id="slider"></div>
                     </div>
                 </div>
               </div>
             </div>
-            <div class="toggle-form" id="signupForm" style="height: 500px;">
+            <div class="toggle-form" id="signupForm" style="display: none; height: 500px;">
               <form id="form-data" onsubmit=" return validateForms()">
                 <div class="form-group mb-2">
                   <label for="Name">First Name</label>
@@ -96,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div id="loginForm" class="toggle-form" style="display: none; height: 300px;">
+            <div id="loginForm" class="toggle-form" style="height: 300px;">
               <!-- Your login form goes here -->
               <form onsubmit=" return loginValidation()">
                 <div id="loginForm" class="form-group mb-3">

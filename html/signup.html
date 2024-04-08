@@ -45,42 +45,46 @@
               </div>
             </div>
 
-              <div class="cylindrical-border-container d-flex justify-content-center mb-3">
-                <div class="cylindrical-container" id="cylindricalContainer">
-                    <div class="cylindrical-container slidercylinder">
-                        <button type="button" id="signupButton" class="cylindrical-btn active-button" onclick="toggleForms('signupForm')">Sign Up</button>   
-                        <button type="button" id="loginButton" class="cylindrical-btn" onclick="toggleForms('loginForm')">Log In</button>   
-                        <div class="slider" id="slider"></div>
-                    </div>
-                </div>
-            </div>
+              <div class="buttonadjustment">
+                <div class="cylindrical-border-container d-flex justify-content-center mb-3">
+                  <div class="cylindrical-container" id="cylindricalContainer">
+                      <div class="cylindrical-container slidercylinder">
+                          <button type="button" id="signupButton" class="cylindrical-btn active-button" onclick="toggleForms('signupForm')">Sign Up</button>   
+                          <button type="button" id="loginButton" class="cylindrical-btn" onclick="toggleForms('loginForm')">Log In</button>   
+                          <div class="slider" id="slider"></div>
+                      </div>
+                  </div>
+              </div>
+              </div>
           
             <div class="toggle-form" id="signupForm">
               <form id="form-data" onsubmit=" return validateForms()">
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <label for="Name">First Name</label>
-                  <input type="text" class="form-control mb-3" id="f_name" placeholder="Enter First Name" required>
+                  <input type="text" class="form-control " id="f_name" placeholder="Enter First Name" onchange="errorValidate()">
+                  <span id="firstNameError" class="error "></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <label for="Name">Last Name</label>
-                  <input type="text" class="form-control mb-3" id="l_name" placeholder="Enter Last Name" required>
+                  <input type="text" class="form-control " id="l_name" placeholder="Enter Last Name" onchange="errorValidate()" >
+                  <span id="lastNameError" class="error"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <label for="Email">Email</label>
-                  <input type="email" class="form-control mb-3" id="email" placeholder="Enter Email" required>
-                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email" onchange="errorValidate()" >
+                  <span id="emailError" class="error"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2 ">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control mb-3" id="password" placeholder="Enter Password"
-                    minlength="6" required>
-                  <div class="invalid-feedback" id="passwordError"></div>
+                  <input type="password" class="form-control" id="password" placeholder="Enter Password" onchange="errorValidate()"
+                    minlength="6" >
+                  <span id="passwordError" class="error"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <label for="password">Confirm Password</label>
-                  <input type="password" class="form-control mb-3" id="cnfpassword" placeholder="Enter Password"
-                    required>
-                  <div class="invalid-feedback" id="confirmPasswordError"></div>
+                  <input type="password" class="form-control" id="cnfpassword" placeholder="Enter Password" onchange="errorValidate()"
+                  >
+                  <span id="confirmPasswordError" class="error "></span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block form-control bagcolor">Create Account</button>
             </div>
@@ -106,10 +110,12 @@
                 <div id="loginForm" class="form-group mb-3">
                   <label for="loginEmail">Email address</label>
                   <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+                  <span id="loginError" class="error"></span>
                 </div>
                 <div class="form-group mb-3">
                   <label for="loginPassword">Password</label>
                   <input type="lgpassword" class="form-control" id="loginPassword" placeholder="Password">
+                  <span id="passError" class="error"></span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block form-control bagcolor">Login</button>
               </form>

@@ -1,3 +1,8 @@
+body {
+    font-family: 'Montserrat';
+}
+
+
 
 .box{
     border: 1px solid #ccc;
@@ -19,51 +24,62 @@
 }
 
 .cylindrical-border-container {
-    width: auto; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     border-radius: 50px; /* Half of the height for cylindrical effect */
     /* border: 1px solid black;  */
     position: relative;
     overflow: hidden;
     display: flex;
-    background-color: #e7e7e7;
+    background-color:white;
     justify-content: center; /* Center the content horizontally */
     align-items: center; /* Center the content vertically */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
+.buttonadjustment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 /* Styles for the cylindrical content */
 .cylindrical-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     position: relative;
-    height: auto; /* Adjust to 70% of the parent container's height */
+    height: 70px; 
 }
 
 /* Styles for the cylindrical button */
 .cylindrical-btn {
-    width: 150px; /* Adjust button width */
-    height: 50% !important; /* Full height */
+    width: 130px;
+    height: 50% !important; 
     border: none;
     background-color: transparent;
-    color: rgb(0, 0, 0);
+    color:#054f98;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    padding: 10px; /* Add padding to increase clickable area */
     position: relative;
     z-index: 1; /* Ensure button text is on top of slider */
     border-radius: 15px;
+
    
 }
 
 /* Active button style */
 .active-button {
-    background-color: #ffffff; /* Change background color for active button */
+    background-color: #054f98; /* Change background color for active button */
+    color: white;
+    font-weight: bold;
 }
 
-
+.toggle-form .error{
+    color: red;
+}
 
 .text-overlay {
     position: absolute;
@@ -103,27 +119,29 @@
     border: 2px solid #e7e7e7;
 }
 .bagcolor{
-    background-color:  #e7e7e7;
-    color: black;
-    font-weight: bold;
+    background-color:  white;
+    color: #054f98;
+    font-weight: bolder;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
     border: 2px solid #e7e7e7 !important;
 }
 
 .bagcolor:hover{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ccc !important;
-    color: black !important;
+    background-color: #054f98 !important;
+    color: white !important;
+    font-weight: bolder;
 }
 .form-text label
 {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     color:  #333333;
 }
 
 input {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+    height: 35px;
 }
 
 input:hover {

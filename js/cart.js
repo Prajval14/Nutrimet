@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded',function(){
             if(total.textContent == 0){
                 alert('your cart is empty!!');
             }
-            
         });
     }
     else{
@@ -105,16 +104,32 @@ document.addEventListener('DOMContentLoaded',function(){
                                     }
                                 }
                         });
-                    })(i);
-
-                    
+                    })(i);   
                 }
-                
             });
-            changed_qty();
 
-                
-              
+            // prohibits the user to enter more than quantity and 0
+            var cartQtyInputs = document.querySelectorAll('.cart-qty');
+
+            cartQtyInputs.forEach(function(cartQtyInput) {
+                // Store the initial value
+                var initialValue = cartQtyInput.value;
+                var currentMax = parseInt(cartQtyInput.getAttribute('max'));
+        
+                cartQtyInput.addEventListener('change', function() {
+                    // If the input value is empty, not a number, less than 1, or greater than the max value, reset it to the initial value
+                    if (!isValidNumber(cartQtyInput.value) || parseInt(cartQtyInput.value) < 1 || parseInt(cartQtyInput.value) > currentMax) {
+                        cartQtyInput.value = initialValue;
+                    }
+                });
+            });
+        
+            function isValidNumber(value) {
+                return !isNaN(parseFloat(value)) && isFinite(value);
+            }
+
+            // s
+            changed_qty();  
         });
 
         var checkoutbtn = document.getElementById('btn_checkout');
@@ -140,6 +155,8 @@ document.addEventListener('DOMContentLoaded',function(){
                 document.getElementById('footer').classList.toggle('fixed-bottom');
             } 
         });
+        
+       
     }    
 });
 
@@ -201,9 +218,8 @@ function createCards(data, index){
                         <p class="price-cart fs-5 fw-bold p-0 m-0" id="discounted-price">$ <span class="only-price">${data.discountPrice}</span></p>
                         <div class="d-flex justify-content-between align-items-end mt-auto"  id="edit-product-cart">
                             <span>
-                            <label for="qty">Qty:</label>
+                            <label for="cart_qty">Qty:</label>
                             <input type="number" id="cart_qty" class="cart-qty" min="1" max="${data.total_quantity}" value="${quantity[index]}">
-
                             <p>In stock: ${data.total_quantity}</p>
                             </span>
                             <span>
@@ -271,6 +287,8 @@ function changed_qty(){
     
 }
 
+
+// quantity generation
 
 
 

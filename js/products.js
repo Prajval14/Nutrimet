@@ -80,7 +80,7 @@ function displayProducts(products, productsContainer) {
       }</span>
                         </p>
                         <button class="btn btn-primary border-0 fw-medium add_to_cart_button">Add to cart</button>
-                        <a href="#" class="btn btn-link" style="font-size: 0.7rem;">View Product Details</a>
+                        <a href="../html/productdetails.html?productid=${product.productid}" class="btn btn-link" style="font-size: 0.7rem;">View Product Details</a>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,7 @@ function displayProducts(products, productsContainer) {
     productsContainer.insertAdjacentHTML("beforeend", productHTML);
   });
 
-  handleAddToCart(); // Re-attach event listeners to new Add to Cart buttons.
-}
+  handleAddToCart(); 
 
 function handleFilterChange(filterSelect, productsContainer) {
   let filteredProducts = [];
@@ -114,6 +113,7 @@ function handleFilterChange(filterSelect, productsContainer) {
   displayProducts(filteredProducts, productsContainer);
 }
 
+
 document
   .getElementById("nav_cart_button")
   .addEventListener(
@@ -122,3 +122,4 @@ document
     (window.location.href =
       "./cart.html?index_page_selected_products=" + JSON.stringify(myCart))
   );
+}

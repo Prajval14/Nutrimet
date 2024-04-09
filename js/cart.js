@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded',function(){
         check_empty_cart(index_page_selected_products);
         var checkoutbtn = document.getElementById('btn_checkout');
         checkoutbtn.addEventListener('click', function(){
+            document.getElementById('footer').classList.toggle('fixed-bottom');
             var total = document.getElementById('total_quantity');
             if(total.textContent == 0){
                 alert('your cart is empty!!');
@@ -151,6 +152,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 row1_1.classList.toggle('hide');
                 products.classList.toggle('hide');
                 checkout_form.classList.toggle('hide');
+                document.getElementById('footer').classList.toggle('fixed-bottom');
             } 
         });
         
@@ -204,7 +206,7 @@ function createCards(data, index){
     const cardDiv = document.createElement('div');
         cardDiv.classList.add('product_card');
     cardDiv.innerHTML = `
-        <div class="card mb-3" >
+        <div class="card" style="border: none">
             <div class="row no-gutters">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <img class="card-img img-thumbnail" id="product_image_${data.productid}" src="${data.imageURL}" alt="product Image" width="100%">
@@ -221,13 +223,14 @@ function createCards(data, index){
                             <p>In stock: ${data.total_quantity}</p>
                             </span>
                             <span>
-                                <i class="bi bi-trash3 fs-4 bg delete_cart_product" data-toggle="tooltip" data-placement="bottom" title="Delete from the cart"></i>
+                                <i class="bi bi-trash3 fs-4 p-2 bg delete_cart_product" data-toggle="tooltip" data-placement="bottom" title="Delete from the cart"></i>
                             </span>                                    
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
      `;
     cartProductContainer.appendChild(cardDiv);
     //Handling on click event for product images 

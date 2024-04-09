@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- Animation lib  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -34,15 +40,58 @@
             /* Hide horizontal scrollbar */
             overflow-x: hidden;
         }
+      
         .add_to_cart_button {
             background-color: #054F98;
         }
+      
         .add_to_cart_button.added {
             background-color: #94BF9D;
             color: black;
         }
-    </style>
+      
+        #products-row {
+            padding: 0 2rem; /* Padding on larger screens */
+        }
+      
+        .card {
+            padding: 1rem; /* Example padding within each card */
+        }
+      
+        /* Adjustments for mobile views */
+        @media (max-width: 767px) {
+            #products-row {
+                padding: 0 1rem; /* Reduced padding on smaller screens */
+            }
+      
+            .card-text {
+                display: none; /* Hide product descriptions on mobile */
+            }
+      
+            #products-row .col-md-3 {
+                flex: 0 0 50%; /* Mimics col-6 behavior */
+                max-width: 50%; /* Mimics col-6 behavior */
+            }
+        }
+      
+        @media (max-width: 576px) {
+            .btn-group .btn {
+                font-size: 0.8rem; /* Smaller text on small devices */
+                padding: .375rem .5rem; /* Adjust padding to make buttons smaller */
+            }
+        }
+      
+        /* Padding adjustments for larger screens */
+        @media (min-width: 992px) {
+            #products-row {
+                padding-left: 5rem; /* Increased padding on the left */
+                padding-right: 5rem; /* Increased padding on the right */
+            }
+        }
+      </style>
+      
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top bg-light">
@@ -92,22 +141,41 @@
         </div>
     </nav>
     <!-- Add a style class for additional spacing -->
-    <div class="container mt-5">
-        <div class="text-center mb-4">
-            <!-- Empty container to create space -->
-            <div style="height: 50px;"></div> <!-- Adjust the height as needed -->
+    <div class="container mt-5 text-center">
+        <div class="mb-4">
+            <div style="height: 50px;"></div> <!-- Adjust the height as needed for spacing -->
             <h2 class="fw-bold">All Products</h2>
-            <div>
-                <select id="product_filter" class="form-select w-auto mx-auto">
-                    <option value="all">All Products</option>
-                    <option value="gym">Gym Accessories</option>
-                    <option value="yoga">Yoga Equipments</option>
-                    <option value="supplements">Supplements</option>
-                </select>
+            <!-- Button filter group for large screens -->
+            <div class="btn-group d-none d-md-flex justify-content-center mt-3" role="group">
+                <button type="button" class="btn btn-outline-primary" data-filter="all">All Products</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="gym">Gym Accessories</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="yoga">Yoga Equipments</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="supplements">Supplements</button>
             </div>
+            <!-- Dropdown filter for mobile screens -->
+            <!-- Dropdown filter for mobile screens -->
+            <!-- Dropdown filter for mobile screens -->
+            <div class="d-md-none mt-3 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4"> <!-- Adjust column sizes as needed -->
+                        <select class="form-select" id="mobile_product_filter">
+                            <option value="all">All Products</option>
+                            <option value="gym">Gym Accessories</option>
+                            <option value="yoga">Yoga Equipments</option>
+                            <option value="supplements">Supplements</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
-    <div class="row mt-4 p-5">
+
+
+
+
+    <div class="row mt-4 p-3">
         <!-- Filters and sorting can be added here later -->
         <!-- Filters and sorting can be added here later -->
     </div>
@@ -130,4 +198,5 @@
         </div>
     </footer>
 </body>
+
 </html>

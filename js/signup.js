@@ -37,7 +37,7 @@ function changeText() {
 }
 
 // Change text content every 3 seconds
-setInterval(changeText, 3000);
+// setInterval(changeText, 3000);
 
 
 function errorValidate(isError)

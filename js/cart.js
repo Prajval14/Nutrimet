@@ -207,7 +207,7 @@ function createCards(data, index){
         <div class="card mb-3" >
             <div class="row no-gutters">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <img class="card-img img-thumbnail" src="${data.imageURL}" alt="product Image" width="100%">
+                    <img class="card-img img-thumbnail" id="product_image_${data.productid}" src="${data.imageURL}" alt="product Image" width="100%">
                 </div>
                 <div class="col-xl-9 col-lg-8 col-md-6 col-sm-6">
                     <div class="card-body">
@@ -230,6 +230,10 @@ function createCards(data, index){
         </div>
      `;
     cartProductContainer.appendChild(cardDiv);
+    //Handling on click event for product images 
+    document.getElementById(`product_image_${data.productid}`).addEventListener("click", (event) => {
+        window.location.href = `../html/productdetails.html?selected_product=${JSON.stringify(data.productid)}`;
+    });
 }
 
 // 4 -- function to calculate total price

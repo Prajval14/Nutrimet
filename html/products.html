@@ -50,18 +50,49 @@
             color: black;
         }
       
-        #products-row {
-            padding: 0 2rem; /* Padding on larger screens */
-        }
+        
       
         .card {
-            padding: 1rem; /* Example padding within each card */
+            /* padding: 1rem; Example padding within each card */
+            border: none;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            
         }
+
+        .card img {
+            border-radius:8px 8px 0px 0px;
+        }
+
+        #product_cards {
+            margin-bottom: 10px;
+        } 
       
         /* Adjustments for mobile views */
         @media (max-width: 767px) {
+            .card {
+                padding: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            #product_cards {
+                margin-bottom: 0;
+            }            
+
+            .card-title {
+                font-size: 15px;
+            }
+
+            .card img {
+                border-radius: 0;
+            }
+            
+            /* .card-body {
+                padding: 10px 0px 10px 10px;
+            } */
+
             #products-row {
-                padding: 0 1rem; /* Reduced padding on smaller screens */
+                padding: 0; /* Padding on larger screens */                
             }
       
             .card-text {
@@ -69,8 +100,15 @@
             }
       
             #products-row .col-md-3 {
-                flex: 0 0 50%; /* Mimics col-6 behavior */
-                max-width: 50%; /* Mimics col-6 behavior */
+                /* flex: 0 0 50%; Mimics col-6 behavior */
+                /* Mimics col-6 behavior */
+                max-width: 50%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .add_to_cart_button {
+                font-size: 15px;
             }
         }
       
@@ -83,10 +121,9 @@
       
         /* Padding adjustments for larger screens */
         @media (min-width: 992px) {
-            #products-row {
-                padding-left: 5rem; /* Increased padding on the left */
-                padding-right: 5rem; /* Increased padding on the right */
-            }
+            #products-row { 
+            margin: 0;
+        }
         }
       </style>
       

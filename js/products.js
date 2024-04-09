@@ -38,17 +38,17 @@ function displayProducts(products, productsContainer) {
 
   products.forEach((product) => {
     const productHTML = `
-          <div class="col-md-3 mb-4 animate__animated animate__jackInTheBox">
+          <div class="col-md-3 animate__animated animate__jackInTheBox" id="product_cards">
               <div class="card h-100">
-                  <img src="${product.imageURL}" class="card-img-top" alt="${
+                  <img src="${product.imageURL}" id="product_image_${product.productid}" class="card-img-top" alt="${
       product.productname
     }">
                   <div class="card-body">
                       <h5 class="product-id d-none">${product.productid}</h5>
                       <h5 class="card-title">${product.productname}</h5>
-                      <p class="card-text">${product.productdetail}</p>
+                      <p class="card-text" style="height: 60px">${product.productdetail}</p>
                       <div class="rating">
-                          ${generateStarRating(product.rating)}
+                          ${product.rating + ' ' + generateStarRating(product.rating)}
                       </div>
                       <p class="card-price">
                           <span class="text-decoration-line-through text-secondary fw-light">$${
@@ -59,9 +59,6 @@ function displayProducts(products, productsContainer) {
                           }</span>
                       </p>
                       <button class="btn btn-primary border-0 fw-medium add_to_cart_button">Add to cart</button>
-                      <a href="../html/productdetails.html?productid=${
-                        product.productid
-                      }" class="btn btn-link" style="font-size: 0.7rem;">View Product Details</a>
                   </div>
               </div>
           </div>

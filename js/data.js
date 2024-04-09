@@ -42,7 +42,7 @@ export const gym_data_list = [
         originalprice: 35, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/resistance_bands.jpg",
+        imageURL: "https://images.stockcake.com/public/d/2/b/d2bb304a-95a1-42fb-a9c6-2c7a09226699_large/focused-gym-training-stockcake.jpg",
         rating: 4.3,
         total_quantity: 20
 
@@ -69,7 +69,7 @@ export const yoga_data_list = [
         originalprice: 10, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/yoga_block.jpg",
+        imageURL: "https://images.stockcake.com/public/f/8/5/f856a5cf-80b7-49eb-b83c-520f8e24c024_large/urban-yoga-studio-stockcake.jpg",
         rating: 4.4,
         total_quantity: 20
 
@@ -81,7 +81,7 @@ export const yoga_data_list = [
         originalprice: 12, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_strap.jpg",
+        imageURL: "https://images.stockcake.com/public/e/0/4/e04105b0-5c72-4e36-9a16-1738a3226db8_large/focused-strength-training-stockcake.jpg",
         rating: 4.6,
         total_quantity: 20
 
@@ -93,7 +93,7 @@ export const yoga_data_list = [
         originalprice: 30, 
         discountPrice: 25,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_wheel.jpg",
+        imageURL: "../media/images/products/wheel.png",
         rating: 4.7,
         total_quantity: 20
 
@@ -105,7 +105,7 @@ export const yoga_data_list = [
         originalprice: 20, 
         discountPrice: 18,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_towel.jpg",
+        imageURL: "https://images.stockcake.com/public/5/f/9/5f962ba3-33f3-41e7-b974-39146e6767d0_large/yoga-relaxation-essentials-stockcake.jpg",
         rating: 4.5,
         total_quantity: 20
 
@@ -117,7 +117,7 @@ export const yoga_data_list = [
         originalprice: 40, 
         discountPrice: 35,
         isondiscount: true,
-        imageURL: "https://example.com/yoga_pants.jpg",
+        imageURL: "https://images.stockcake.com/public/f/1/a/f1a6c213-4918-4939-b783-12cf27df9fc0_large/outdoor-yoga-practice-stockcake.jpg",
         rating: 4.4,
         total_quantity: 20
     }
@@ -131,7 +131,7 @@ export const supplements_data_list = [
         originalprice: 20, 
         discountPrice: 18,
         isondiscount: true,
-        imageURL: "https://example.com/multivitamin_tablets.jpg",
+        imageURL: "https://images.stockcake.com/public/f/f/a/ffa72960-26ea-4627-a212-e507123f5aea_large/vitamin-selection-shopping-stockcake.jpg",
         rating: 4.4,
         total_quantity: 20
     },
@@ -142,7 +142,7 @@ export const supplements_data_list = [
         originalprice: 25, 
         discountPrice: 0,
         isondiscount: false,
-        imageURL: "https://example.com/fish_oil_capsules.jpg",
+        imageURL: "https://images.stockcake.com/public/9/f/e/9fe61bc9-d40e-4c04-b73a-fc5bfa835365_large/shopping-for-supplements-stockcake.jpg",
         rating: 4.3,
         total_quantity: 20
     },
@@ -153,7 +153,7 @@ export const supplements_data_list = [
         originalprice: 30, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://example.com/probiotic_supplements.jpg",
+        imageURL: "https://images.stockcake.com/public/5/6/3/56356fd1-e6df-40ed-9b82-89e39225e809_large/health-supplement-collection-stockcake.jpg,
         rating: 4.5,
         total_quantity: 20
     },
@@ -164,7 +164,7 @@ export const supplements_data_list = [
         originalprice: 18, 
         discountPrice: 15,
         isondiscount: true,
-        imageURL: "https://example.com/protein_bars.jpg",
+        imageURL: "https://images.stockcake.com/public/e/4/d/e4d805f3-9455-47b5-b2bf-de1eeb023eb6_large/snack-bar-focus-stockcake.jpg",
         rating: 4.2,
         total_quantity: 20
     },
@@ -175,7 +175,7 @@ export const supplements_data_list = [
         originalprice: 35, 
         discountPrice: 30,
         isondiscount: true,
-        imageURL: "https://example.com/collagen_powder.jpg",
+        imageURL: "https://images.stockcake.com/public/1/1/a/11af7cf4-4495-4491-a798-93bbb61cb9a5_large/scooped-protein-powder-stockcake.jpg",
         rating: 4.6,
         total_quantity: 20
     }

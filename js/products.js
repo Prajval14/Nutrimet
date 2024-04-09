@@ -64,8 +64,7 @@ function displayProducts(products, productsContainer) {
     const productHTML = `
         <div class="col-md-3 mb-4">
                 <div class="card h-100">
-                    <img src="${product.imageURL}" class="card-img-top" alt="${product.productname
-      }">
+                <img src="${product.imageURL}" id="product_image_${product.productid}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="product-id d-none">${product.productid}</h5>
                         <h5 class="card-title">${product.productname}</h5>
@@ -86,6 +85,11 @@ function displayProducts(products, productsContainer) {
             </div>
         `;
     productsContainer.insertAdjacentHTML("beforeend", productHTML);
+
+    //Handling on click event for product images - navigate to product details page
+    document.getElementById(`product_image_${product.productid}`).addEventListener("click", (event) => {
+      window.location.href = `./productdetails.html?selected_product=${JSON.stringify(product.productid)}`;
+  });
   });
 
   handleAddToCart(); 

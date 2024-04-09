@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    animateOnScroll();
+    // animateOnScroll();
   });
   
   function animateOnScroll() {

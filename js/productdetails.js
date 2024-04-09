@@ -1,6 +1,6 @@
 const selected_product = JSON.parse(new URLSearchParams(window.location.search).get('selected_product') ?? 'null');
-console.log(selected_product);
-debugger
+// console.log(selected_product);
+//debugger
 import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js';
 
 
@@ -17,7 +17,7 @@ const allProducts = [...gym_data_list, ...yoga_data_list, ...supplements_data_li
 
 // Find the product with the matching name
 const product = allProducts.find(prod => prod.productid === selected_product);
-    debugger
+    //debugger
     createCards(product);
     
 })
@@ -26,6 +26,7 @@ const gymContainer = document.getElementById('product_detail_container');
 
 //Functions defined
 function createCards(product) {    
+    debugger
     const cardDiv = document.createElement('div');
     cardDiv.className = 'container';
     gymContainer.innerHTML = `
@@ -62,11 +63,9 @@ function createCards(product) {
     <div class="right">
         <h2>${product.productname}</h2>
         <h4>$${product.originalprice}</h4>
+        <hr>
         <p>${product.productdetail}</p>
-        <p>${product.productdescription}</p>
-        <div class="rating">
-             ${generateStarRating(product.rating)}
-        </div>
+        <div class="rating">${product.rating + ' ' + generateStarRating(product.rating)}</div>
         <button class="add_to_cart_button">Add to cart</button>
     </div>
     `;

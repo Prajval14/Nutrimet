@@ -80,7 +80,7 @@ function displayProducts(products, productsContainer) {
       }</span>
                         </p>
                         <button class="btn btn-primary border-0 fw-medium add_to_cart_button">Add to cart</button>
-                        <a href="./product-details.html?productid=${product.productid}" class="btn btn-link" style="font-size: 0.7rem;">View Product Details</a>
+                        <a href="../html/productdetails.html?productid=${product.productid}" class="btn btn-link" style="font-size: 0.7rem;">View Product Details</a>
                     </div>
                 </div>
             </div>

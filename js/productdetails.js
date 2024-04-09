@@ -3,6 +3,14 @@ console.log(selected_product);
 debugger
 import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js';
 
+
+const navbarBadge = document.getElementById("navbar_toggler_icon_badge");
+const cartBadge = document.getElementById("cart_items_badge");
+
+//Declaring empty arrays to send data to add to cart page
+const instanceCart = [];
+const myCart = [];
+
 document.addEventListener('DOMContentLoaded', function() {
 // Combine all product lists into one array
 const allProducts = [...gym_data_list, ...yoga_data_list, ...supplements_data_list];
@@ -21,7 +29,7 @@ function createCards(product) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'container';
     gymContainer.innerHTML = `
-    <div class="col-sm-6">
+    <div class="left">
         <!-- Carousel -->
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators" id="carousel_image">
@@ -32,10 +40,10 @@ function createCards(product) {
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active" id="carousel_img_1">
-                
+                <img src="${product.imageURL}" class="card-img-top" alt="${product.productname}">
                 </div>
                 <div class="carousel-item" id="carousel_img_2">
-                
+                <img src="${product.imageURL}" class="card-img-top" alt="${product.productname}">
                 </div>
                 <div class="carousel-item" id="carousel_img_3">
                 <img src="${product.imageURL}" class="card-img-top" alt="${product.productname}">   
@@ -51,45 +59,24 @@ function createCards(product) {
         </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="right">
         <h2>${product.productname}</h2>
-        <h4>${product.originalprice}</h4>
+        <h4>$${product.originalprice}</h4>
         <p>${product.productdetail}</p>
         <p>${product.productdescription}</p>
-
-        <div class="add">
-             <lable>Quantity: </lable>
-            <select name="quantity" id="product-quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            </select>
+        <div class="rating">
+             ${generateStarRating(product.rating)}
         </div>
-        <button class=".add_to_cart_button">Add to cart</button>
+        <button class="add_to_cart_button">Add to cart</button>
     </div>
     `;
 
-    document.getElementById('');
-
-    var img1 = document.getElementById('carousel_img_1');
-    img1.style.width = "100%";
-    img1.style.height = "500px";
-    img1.style.backgroundImage= `url('${product.imageURL}')`;
-
-    var img2 = document.getElementById('carousel_img_2');
-    img2.style.width = "100%";
-    img2.style.height = "500px";
-    img2.style.backgroundImage= `url('${product.imageURL}')`;
-
-    var img3 = document.getElementById('carousel_img_3');
-    img3.style.width = "100%";
-    img3.style.height = "500px";
-    img3.style.backgroundImage= `url('${product.imageURL}')`;
-    container.appendChild(cardDiv);
+    handleAddToCart();
 }
+
+// Handling navbar cart and sign up on click event
+document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
+document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
 
 
@@ -103,17 +90,48 @@ function addProductToCart(event) {
     //Set add to cart on click to addded for few seconds
     const button = event.target;
     button.innerHTML = `Added <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-    </svg>`;
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </svg>`;
     button.classList.add('added');
-    setTimeout(function() {
-        button.textContent = 'Add to Cart';
-        button.classList.remove('added');
+    setTimeout(function () {
+      button.textContent = 'Add to Cart';
+      button.classList.remove('added');
     }, 1000);
-
+  
     //Add product ID to cart and a list 
-    const productID = event.target.closest('.card').querySelector('.product-id').textContent;        
+    const productID = selected_product;
     myCart.push(productID);
     navbarBadge.style.display = 'flex';
     cartBadge.innerHTML = myCart.length;
+  }
+
+function generateStarRating(rating) {
+    const starTotal = 5;
+    const roundedRating = Math.round(parseFloat(rating));
+    let starHTML = "";
+    for (let i = 0; i < starTotal; i++) {
+      starHTML += i < roundedRating ? "⭐" : "☆";
+    }
+    return starHTML;
+  }
+
+  document
+  .getElementById("nav_cart_button")
+  .addEventListener(
+    "click",
+    () =>
+    (window.location.href =
+      "./cart.html?index_page_selected_products=" + JSON.stringify(myCart))
+  );
+
+  //toggle validation
+  function toggleValidation() {
+    var isValid = sessionStorage.getItem("isValid");
+    // If isValid is null or false, redirect to signup.html
+    if (!isValid || isValid === "false") {
+        window.location.href = './html/signup.html';
+    } else {
+        window.location.href = './html/details.html';
+    }
 }
+

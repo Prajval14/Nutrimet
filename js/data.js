@@ -16,7 +16,7 @@ export const gym_data_list = [
         productname: "Weightlifting Gloves", 
         productdetail: "Durable gloves with wrist support for a comfortable grip during workouts", 
         originalprice: 30, 
-        discountPrice: 0,
+        discountPrice: 25,
         isondiscount: true,
         imageURL: "https://images.stockcake.com/public/1/7/c/17c3e09a-5fb4-467b-95c4-6cfe48d5faab_large/gym-workout-equipment-stockcake.jpg",
         rating: 4.0,

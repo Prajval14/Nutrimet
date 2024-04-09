@@ -257,10 +257,10 @@ function total_price(){
     sub_total.innerHTML = `${price_of_cart}`
     var tax_calculation = price_of_cart * 0.13;
     tax_calculation = tax_calculation;
-    tax.innerHTML = `${tax_calculation}`; 
+    tax.innerHTML = `${tax_calculation.toFixed(2)}`; 
     var sum = tax_calculation + price_of_cart;
     var total = document.getElementById('total');
-    total.innerHTML = `${sum}`;
+    total.innerHTML = `${sum.toFixed(2)}`;
     total_product.innerHTML = total_count;
     badge.innerHTML = total_count;
 

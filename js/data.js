@@ -153,7 +153,7 @@ export const supplements_data_list = [
         originalprice: 30, 
         discountPrice: 0,
         isondiscount: true,
-        imageURL: "https://images.stockcake.com/public/5/6/3/56356fd1-e6df-40ed-9b82-89e39225e809_large/health-supplement-collection-stockcake.jpg,
+        imageURL: "https://images.stockcake.com/public/5/6/3/56356fd1-e6df-40ed-9b82-89e39225e809_large/health-supplement-collection-stockcake.jpg",
         rating: 4.5,
         total_quantity: 20
     },

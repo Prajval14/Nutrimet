@@ -66,6 +66,13 @@ document.getElementById('supplement_right').addEventListener("click", () => hand
 document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
 document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 
+document.getElementById('search_input').addEventListener("keypress", (event) => {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        window.location.href = './html/products.html?searched_product=' + document.getElementById('search_input').value;
+    }
+});
+
 //Functions defined
 //Function to create cards of data
 function createCards(data, container) {

@@ -9,11 +9,15 @@ const navbarBadge = document.getElementById("navbar_toggler_icon_badge");
 const cartBadge = document.getElementById("cart_items_badge");
 
 document.addEventListener("DOMContentLoaded", () => {
+  const searched_product = new URLSearchParams(window.location.search).get('searched_product') ?? 'null';
   const productsContainer = document.getElementById("products-row");
   displayProducts(
     [...gym_data_list, ...yoga_data_list, ...supplements_data_list],
     productsContainer
   );
+  if (searched_product !== 'null') {
+    handleFilterChange(searched_product, productsContainer)
+  }
 
   // Event listeners for desktop filter buttons
   document.querySelectorAll(".btn-group button").forEach((button) => {

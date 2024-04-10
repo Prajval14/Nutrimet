@@ -209,7 +209,7 @@ function createCards(data, index){
         <div class="card" style="border: none">
             <div class="row no-gutters">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <img class="card-img img-thumbnail" src="${data.imageURL}" alt="product Image" width="100%" style="border: none">
+                    <img class="card-img img-thumbnail" id="product_image_${data.productid}" src="${data.imageURL}" alt="product Image" width="100%">
                 </div>
                 <div class="col-xl-9 col-lg-8 col-md-6 col-sm-6">
                     <div class="card-body">
@@ -233,6 +233,10 @@ function createCards(data, index){
         <hr>
      `;
     cartProductContainer.appendChild(cardDiv);
+    //Handling on click event for product images 
+    document.getElementById(`product_image_${data.productid}`).addEventListener("click", (event) => {
+        window.location.href = `../html/productdetails.html?selected_product=${JSON.stringify(data.productid)}`;
+    });
 }
 
 // 4 -- function to calculate total price
@@ -253,10 +257,10 @@ function total_price(){
     sub_total.innerHTML = `${price_of_cart}`
     var tax_calculation = price_of_cart * 0.13;
     tax_calculation = tax_calculation;
-    tax.innerHTML = `${tax_calculation}`; 
+    tax.innerHTML = `${tax_calculation.toFixed(2)}`; 
     var sum = tax_calculation + price_of_cart;
     var total = document.getElementById('total');
-    total.innerHTML = `${sum}`;
+    total.innerHTML = `${sum.toFixed(2)}`;
     total_product.innerHTML = total_count;
     badge.innerHTML = total_count;
 

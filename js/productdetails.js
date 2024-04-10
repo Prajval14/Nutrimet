@@ -7,8 +7,7 @@ import { gym_data_list, yoga_data_list, supplements_data_list } from './data.js'
 const navbarBadge = document.getElementById("navbar_toggler_icon_badge");
 const cartBadge = document.getElementById("cart_items_badge");
 
-//Declaring empty arrays to send data to add to cart page
-const instanceCart = [];
+//Declaring empty array to send data to add to cart page
 const myCart = [];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,7 +25,6 @@ const gymContainer = document.getElementById('product_detail_container');
 
 //Functions defined
 function createCards(product) {    
-    debugger
     const cardDiv = document.createElement('div');
     cardDiv.className = 'container';
     gymContainer.innerHTML = `
@@ -65,7 +63,14 @@ function createCards(product) {
         <h4>$${product.originalprice}</h4>
         <hr>
         <p>${product.productdetail}</p>
-        <div class="rating">${product.rating + ' ' + generateStarRating(product.rating)}</div>
+        <div class="rating">${product.rating + ' ' + generateStarRating(product.rating)}</div><br>
+        <label>Quantity:&nbsp;&nbsp;</label><select class="quantity-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         <button class="add_to_cart_button">Add to cart</button>
     </div>
     `;
@@ -88,10 +93,13 @@ function handleAddToCart() {
 function addProductToCart(event) {
     //Set add to cart on click to addded for few seconds
     const button = event.target;
+    const quantitySelect = event.target.closest('.right').querySelector('.quantity-select');
+    const selectedQuantity = parseInt(quantitySelect.value);
+
     button.innerHTML = `Added <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
       </svg>`;
-    button.classList.add('added');
+    button.classList.add('added');  
     setTimeout(function () {
       button.textContent = 'Add to Cart';
       button.classList.remove('added');
@@ -99,7 +107,9 @@ function addProductToCart(event) {
   
     //Add product ID to cart and a list 
     const productID = selected_product;
-    myCart.push(productID);
+    for (let i = 0; i < selectedQuantity; i++) {
+        myCart.push(productID);
+    }
     navbarBadge.style.display = 'flex';
     cartBadge.innerHTML = myCart.length;
   }

@@ -18,6 +18,32 @@ const allProducts = [...gym_data_list, ...yoga_data_list, ...supplements_data_li
 const product = allProducts.find(prod => prod.productid === selected_product);
     //debugger
     createCards(product);
+
+    // *******************************
+
+    // prohibits the user to enter more than quantity and lessthan 0
+    var cartQtyInput = document.getElementById('cart_qty');
+
+    
+        var initialValue = cartQtyInput.value;
+        var currentMax = parseInt(cartQtyInput.getAttribute('max'));
+
+        console.log(currentMax);
+
+        cartQtyInput.addEventListener('change', function() {
+            // If the input value is empty, not a number, less than 1, or greater than the max value, reset it to the initial value
+            if (!isValidNumber(cartQtyInput.value) || parseInt(cartQtyInput.value) < 1 || parseInt(cartQtyInput.value) > currentMax) {
+                cartQtyInput.value = initialValue;
+            }
+        });
+
+    function isValidNumber(value) {
+        return !isNaN(parseFloat(value)) && isFinite(value);
+    }
+
+
+    // -------------------------------
+    document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
     
 })
 
@@ -67,7 +93,8 @@ function createCards(product) {
         <label>Quantity:&nbsp;&nbsp;
         </select>
         <input type="number" id="cart_qty" class="quantity-select" min="1" max="${product.total_quantity}" value="1">
-        <button class="add_to_cart_button">Add to cart</button>
+        <p class="t_qty" >Total Quanity: <span id="single_product_total_quantity"> ${product.total_quantity}</span></p>
+        <button class="add_to_cart_button" id="add_to_cart_btn">Add to cart</button>
     </div>
     `;
 
@@ -76,14 +103,29 @@ function createCards(product) {
 
 // Handling navbar cart and sign up on click event
 document.getElementById('nav_cart_button').addEventListener("click", () => window.location.href = './html/cart.html?index_page_selected_products=' + JSON.stringify(myCart));
-document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
+
 
 
 
 
 function handleAddToCart() {
     const addToCartButtons = document.querySelectorAll('.add_to_cart_button');
-    addToCartButtons.forEach(button => button.addEventListener("click", (event) => addProductToCart(event)));
+    // addToCartButtons.forEach(button => button.addEventListener("click", (event) => addProductToCart(event)));
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            var total_qty = document.getElementById('single_product_total_quantity');
+            var selected_qty = document.getElementById('cart_qty');
+            var selected_qty_value = parseInt(selected_qty.value);
+
+            if (parseInt(total_qty.textContent) > 0 && (parseInt(total_qty.textContent) - selected_qty_value) >= 0) {
+                addProductToCart(event); // Call the function you already have
+                total_qty.textContent = parseInt(total_qty.textContent) - selected_qty_value;
+                selected_qty.setAttribute('max', parseInt(total_qty.textContent));
+            } else {
+                alert('Quantity is not available as per your request');
+            }                     
+        });
+    });
 }
 
 function addProductToCart(event) {
@@ -120,6 +162,17 @@ function generateStarRating(rating) {
     return starHTML;
   }
 
+    //toggle validation
+    function toggleValidation() {
+        var isValid = sessionStorage.getItem("isValid");
+        // If isValid is null or false, redirect to signup.html
+        if (!isValid || isValid === "false") {
+            window.location.href = '../html/signup.html';
+        } else {
+            window.location.href = '../html/details.html';
+        }
+    }
+    
   document
   .getElementById("nav_cart_button")
   .addEventListener(
@@ -129,14 +182,4 @@ function generateStarRating(rating) {
       "./cart.html?index_page_selected_products=" + JSON.stringify(myCart))
   );
 
-  //toggle validation
-  function toggleValidation() {
-    var isValid = sessionStorage.getItem("isValid");
-    // If isValid is null or false, redirect to signup.html
-    if (!isValid || isValid === "false") {
-        window.location.href = './html/signup.html';
-    } else {
-        window.location.href = './html/details.html';
-    }
-}
 

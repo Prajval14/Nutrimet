@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded',function(){
     var index_page_selected_products = JSON.parse(arrayString);
     var countedNames = []; // Array to keep track of counted names
     
+    
+
     for (var i = 0; i < index_page_selected_products.length; i++) {
         var productName = index_page_selected_products[i];
         
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 }
             });
 
-            // prohibits the user to enter more than quantity and 0
+            // prohibits the user to enter more than quantity and lessthan 0
             var cartQtyInputs = document.querySelectorAll('.cart-qty');
 
             cartQtyInputs.forEach(function(cartQtyInput) {
@@ -158,6 +160,8 @@ document.addEventListener('DOMContentLoaded',function(){
         
        
     }    
+
+    document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 });
 
 // 1 -- function to check weather the cart is empty or not
@@ -220,7 +224,6 @@ function createCards(data, index){
                             <span>
                             <label for="cart_qty">Qty:</label>
                             <input type="number" id="cart_qty" class="cart-qty" min="1" max="${data.total_quantity}" value="${quantity[index]}">
-                            <p>In stock: ${data.total_quantity}</p>
                             </span>
                             <span>
                                 <i class="bi bi-trash3 fs-4 p-2 bg delete_cart_product" data-toggle="tooltip" data-placement="bottom" title="Delete from the cart"></i>
@@ -290,11 +293,13 @@ function changed_qty(){
     // total_product.innerHTML = total_count;
     
 }
-
-
-// quantity generation
-
-
-
-  
-  //------------------------------------
+//Urvesh Patel
+function toggleValidation() {
+    var isValid = sessionStorage.getItem("isValid");
+    // If isValid is null or false, redirect to signup.html
+    if (!isValid || isValid === "false") {
+        window.location.href = '../html/signup.html';
+    } else {
+        window.location.href = '../html/details.html';
+    }
+}

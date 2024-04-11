@@ -146,6 +146,7 @@ function loginValidation() {
   if (R_Id == userName && l_Password == R_Pass) {
     window.location.href = "../index.html";
     sessionStorage.setItem("isValid", true);
+    sessionStorage.setItem("loginmsg",true);
   } else {
     if (userName === '') {
       document.getElementById('loginError').innerText = 'Please enter your Email';

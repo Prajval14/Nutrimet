@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     // animateOnScroll();
+    document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
+
   });
   
   function animateOnScroll() {
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
       );
     }
-  
+
     function handleScroll() {
       images.forEach(function(image) {
         if (checkInView(image) && !image.classList.contains('animated')) {
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
       });
     }
+
+    
   
     // Initial check when the page loads
     handleScroll();
@@ -48,4 +52,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Listen for scroll events
     window.addEventListener('scroll', handleScroll);
   }
+
+  function toggleValidation() {
+    var isValid = sessionStorage.getItem("isValid");
+    // If isValid is null or false, redirect to signup.html
+    if (!isValid || isValid === "false") {
+        window.location.href = '../html/signup.html';
+    } else {
+        window.location.href = '../html/details.html';
+    }
+}
   

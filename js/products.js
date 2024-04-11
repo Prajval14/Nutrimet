@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handleFilterChange(searched_product, productsContainer)
   }
 
+  document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
   // Event listeners for desktop filter buttons
   document.querySelectorAll(".btn-group button").forEach((button) => {
     button.addEventListener("click", function () {
@@ -113,6 +114,17 @@ function generateStarRating(rating) {
     stars += i < rating ? "⭐" : "☆";
   }
   return stars;
+}
+
+
+function toggleValidation() {
+  var isValid = sessionStorage.getItem("isValid");
+  // If isValid is null or false, redirect to signup.html
+  if (!isValid || isValid === "false") {
+      window.location.href = '../html/signup.html';
+  } else {
+      window.location.href = '../html/details.html';
+  }
 }
 
 function handleFilterChange(filterValue, productsContainer) {

@@ -10,3 +10,19 @@ body {
   color: #ffffff;
   
 }
+
+
+.input-group-append{
+  height: 38px !important;
+  background-color: #e9ecef;
+  color: black;
+}
+
+.input-group-append :hover{
+  background-color: #e9ecef;
+  color: black;
+}
+.input-group-append :active{
+  background-color: transparent;
+}
+

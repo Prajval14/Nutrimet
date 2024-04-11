@@ -50,6 +50,18 @@ function closeUpDetails()
   window.location.href = window.location.href;
 }
 
+function togglePasswordVisibility() {
+  var passwordInput = document.getElementById("password");
+  var buttontext = document.getElementById("btntext");
+  if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      buttontext.innerText = 'Hide';
+  } else {
+      passwordInput.type = "password";
+      buttontext.innerText = 'Show';
+  }
+}
+
 function resetSession() {
   sessionStorage.clear();
   window.location.href = "../index.html";

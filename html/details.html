@@ -35,10 +35,15 @@
             <div class="invalid-feedback">Please enter a valid email address.</div>
           </div>
           <div class="form-group">
-            <label for="password"  >Password</label>
-            <input type="password" class="form-control mb-3" id="password" disabled  >
+            <label for="password">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="password" disabled>
+                <div class="input-group-append">
+                    <button class="btn " type="button" onclick="togglePasswordVisibility()" id="btntext">Show</button>
+                </div>
+            </div>
             <div class="invalid-feedback" id="passwordError"></div>
-          </div>
+        </div>
             <div class="form-group">
               <label for="mobileNumber" class="form-label">Mobile Number</label>
               <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter your mobile number">

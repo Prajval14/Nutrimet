@@ -35,26 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
         discountedSupplementProducts.forEach(data => createCards(data, supplementsContainer));
     }
 
-    //login msg
+    //login msg - Urvesh Patel
     var msg = document.getElementById('welcomemsg');
     var uname = sessionStorage.getItem('f_name');
     var lname = sessionStorage.getItem('l_name');
-    var fullname = uname.toUpperCase()+ " " + lname.toUpperCase();
+    var fullname = uname.toUpperCase() + " " + lname.toUpperCase();
     msg.innerText = "Welcome " + fullname + "  Log In Successful!!";
-    console.log(sessionStorage.getItem('loginmsg'))
-    if(sessionStorage.getItem('loginmsg') === 'true')
-    {
+    // console.log(sessionStorage.getItem('loginmsg'))
+    if (sessionStorage.getItem('loginmsg') === 'true') {
         var myModal = new bootstrap.Modal(
             document.getElementById("LogInModal"),
             {}
-          );
-          myModal.show();
-          setTimeout(function() {
+        );
+        myModal.show();
+        setTimeout(function () {
             myModal.hide();
         }, 3000);
-          sessionStorage.setItem("loginmsg",false)
+        sessionStorage.setItem("loginmsg", false)
     }
-
 
     // Add event listeners to the navigation links
     document.querySelectorAll('.index-scroll').forEach(anchor => {

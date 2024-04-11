@@ -83,8 +83,12 @@ function displayMessage(title, content) {
 document.addEventListener("DOMContentLoaded", function (event) {
   // Call onPageLoad when the DOM content is fully loaded
   onPageLoad();
-});
 
-document.querySelector("#updateButton").addEventListener("click", function () {
-  updateDetails();
+  document.querySelector("#updateButton").addEventListener("click", function () {
+    updateDetails();
+  });
+
+  //Footer JS
+  const footerYear = document.getElementById('current_Year');
+  footerYear.innerHTML = new Date().getFullYear();
 });

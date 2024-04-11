@@ -64,13 +64,9 @@ function createCards(product) {
         <hr>
         <p>${product.productdetail}</p>
         <div class="rating">${product.rating + ' ' + generateStarRating(product.rating)}</div><br>
-        <label>Quantity:&nbsp;&nbsp;</label><select class="quantity-select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+        <label>Quantity:&nbsp;&nbsp;
         </select>
+        <input type="number" id="cart_qty" class="quantity-select" min="1" max="${product.total_quantity}" value="1">
         <button class="add_to_cart_button">Add to cart</button>
     </div>
     `;

@@ -35,12 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
         discountedSupplementProducts.forEach(data => createCards(data, supplementsContainer));
     }
 
+    //Setting up add to cart button after all cards are rendered
+    handleAddToCart();
+
     //login msg - Urvesh Patel
     var msg = document.getElementById('welcomemsg');
     var uname = sessionStorage.getItem('f_name');
     var lname = sessionStorage.getItem('l_name');
     var fullname = uname.toUpperCase() + " " + lname.toUpperCase();
-    msg.innerText = "Welcome " + fullname + "  Log In Successful!!";
+    msg.innerText = "Welcome " + fullname + ", Login Successful!";
     // console.log(sessionStorage.getItem('loginmsg'))
     if (sessionStorage.getItem('loginmsg') === 'true') {
         var myModal = new bootstrap.Modal(
@@ -65,9 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-
-    //Setting up add to cart button after all cards are rendered
-    handleAddToCart();
 
     //Setting dynamic year value in footer
     footerYear.innerHTML = new Date().getFullYear();

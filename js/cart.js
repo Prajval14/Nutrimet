@@ -161,6 +161,89 @@ document.addEventListener('DOMContentLoaded',function(){
        
     }    
 
+    var btn_submit = document.getElementById('btn_submit');
+
+    btn_submit.addEventListener('click', function(){
+
+        
+
+       // Get form input values
+        var fullName = document.getElementById('fullName').value.trim();
+        var address = document.getElementById('address').value.trim();
+        var city = document.getElementById('city').value.trim();
+        var province = document.getElementById('province').value.trim();
+        var postalCode = document.getElementById('postalCode').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+
+        var fullNameValidation = document.getElementById('fname_v');
+        var addressValidation = document.getElementById('add_v');
+        var cityValidation = document.getElementById('city_v');
+        var provinceValidation = document.getElementById('province_v');
+        var postalCodeValidation = document.getElementById('pos_v');
+        var phoneValidation = document.getElementById('mob_v');
+
+        fullNameValidation.textContent = '';
+        addressValidation.textContent = '';
+        cityValidation.textContent = '';
+        provinceValidation.textContent = '';
+        postalCodeValidation.textContent = '';
+        phoneValidation.textContent = '';
+
+        var validation = true;
+
+        // Validate Full Name
+        if (fullName === '') {
+            fullNameValidation.textContent = 'Please enter your full name';
+            validation = false;
+            
+        } else {
+            fullNameValidation.textContent = '';
+        }
+
+        // Validate Address
+        if (address === '') {
+            addressValidation.textContent = 'Please enter your address';
+            validation = false;
+        } else {
+            addressValidation.textContent = '';
+        }
+
+        // Validate City
+        if (city === '') {
+            cityValidation.textContent = 'Please enter your city';
+            validation = false;
+        } else {
+            cityValidation.textContent = '';
+        }
+
+        // Validate Province
+        if (province === '') {
+            provinceValidation.textContent = 'Please enter your province';
+            validation = false;
+        } else {
+            provinceValidation.textContent = '';
+        }
+        // Validate Postal Code
+        var postalCodeRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+        if (postalCode === '' || !postalCodeRegex.test(postalCode)) {
+            postalCodeValidation.textContent = 'Please enter a valid postal code (e.g., A1A 1A1)';
+            validation = false;
+        } else {
+            postalCodeValidation.textContent = '';
+        }
+        // Validate Phone Number
+        var phoneRegex = /^\d{10}$/;
+        if (phone === '' || !phoneRegex.test(phone)) {
+            phoneValidation.textContent = 'Please enter a valid 10-digit phone number';
+            validation = false;
+        } else {
+            phoneValidation.textContent = '';
+        }
+        if(validation == true){
+            $('#fullNameModal').modal('show');
+        }
+    });
+
     document.getElementById('nav_login_button').addEventListener("click", () => toggleValidation());
 });
 

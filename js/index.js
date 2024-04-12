@@ -38,6 +38,21 @@ document.addEventListener('DOMContentLoaded', function () {
     //Setting up add to cart button after all cards are rendered
     handleAddToCart();
 
+    // Add event listeners to the navigation links
+    document.querySelectorAll('.index-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetDiv = document.querySelector(targetId);
+            targetDiv.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    //Setting dynamic year value in footer
+    footerYear.innerHTML = new Date().getFullYear();
+
     //login msg - Urvesh Patel
     var msg = document.getElementById('welcomemsg');
     var uname = sessionStorage.getItem('f_name');
@@ -56,21 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
         sessionStorage.setItem("loginmsg", false)
     }
-
-    // Add event listeners to the navigation links
-    document.querySelectorAll('.index-scroll').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetDiv = document.querySelector(targetId);
-            targetDiv.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    //Setting dynamic year value in footer
-    footerYear.innerHTML = new Date().getFullYear();
 });
 
 //Handling left right click event listeners for card in mobile viewport

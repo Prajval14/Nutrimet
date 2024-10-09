@@ -1,4 +1,5 @@
 # Nutrimet - An Online Health and Wellness Product Store 🏋️‍♂️🥗
+https://prajval14.github.io/Nutrimet/index.html
 
 Welcome to Nutrimet - your ultimate destination for health and wellness products online! Here, we cater to fitness enthusiasts, health-conscious individuals, and athletes by providing a wide range of products including supplements, fitness equipment, yoga accessories, and healthy snacks.
 
